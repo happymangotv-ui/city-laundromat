@@ -143,7 +143,14 @@
     .nav-links.open li:nth-child(3){animation-delay:0.30s}
     .nav-links.open a{font-size:1.1rem;font-weight:600;color:var(--charcoal)}
     @keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideUp{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-16px)}}
     @keyframes fadeInItem{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeOutItem{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-10px)}}
+    .nav-links.closing{animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1) forwards;pointer-events:none}
+    .nav-links.closing li{animation:fadeOutItem 0.25s cubic-bezier(0.4,0,0.2,1) forwards!important}
+    .nav-links.closing li:nth-child(1){animation-delay:0s!important}
+    .nav-links.closing li:nth-child(2){animation-delay:0.05s!important}
+    .nav-links.closing li:nth-child(3){animation-delay:0.10s!important}
     .hamburger span{transition:transform 0.3s ease,opacity 0.2s ease}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
@@ -277,8 +284,18 @@
   },{threshold:0.12});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
   function toggleNav(){
-    document.getElementById('navLinks').classList.toggle('open');
-    document.getElementById('hamburger').classList.toggle('open');
+    const nav = document.getElementById('navLinks');
+    const burger = document.getElementById('hamburger');
+    if(nav.classList.contains('open')){
+      nav.classList.add('closing');
+      burger.classList.remove('open');
+      setTimeout(()=>{
+        nav.classList.remove('open','closing');
+      }, 400);
+    } else {
+      nav.classList.add('open');
+      burger.classList.add('open');
+    }
   }
   function handleSubmit(e){
     e.preventDefault();
