@@ -3,19 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The City Laundromat – Laundry Pickup & Delivery Serving Manhattan, NY</title>
-  <meta name="description" content="The City Laundromat offers professional laundry pickup and delivery service for Manhattan residents. Wash & fold, dry cleaning, and drop-off — fast, affordable, and reliable." />
-  <meta name="keywords" content="laundry pickup Manhattan, laundry delivery Manhattan, wash and fold Manhattan, dry cleaning Manhattan, laundromat NYC" />
+  <title>Wash &amp; Fold Service – The City Laundromat</title>
+  <meta name="description" content="Professional wash & fold laundry service starting at $1.25/lb. Same-day service available. Drop off at 391 Brook Ave, Bronx or schedule a pickup." />
   <meta name="robots" content="index, follow" />
-  <meta name="geo.region" content="US-NY" />
-  <meta name="author" content="The City Laundromat" />
   <meta name="theme-color" content="#c4d6e3" />
-  <meta property="og:title" content="The City Laundromat – Laundry Pickup & Delivery Serving Manhattan" />
-  <meta property="og:description" content="Professional laundry pickup & delivery serving Manhattan. Call (347) 918-8301." />
-  <meta property="og:type" content="website" />
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Laundry","name":"The City Laundromat","telephone":"(347) 918-8301","address":{"@type":"PostalAddress","streetAddress":"391 Brook Avenue","addressLocality":"Bronx","addressRegion":"NY","postalCode":"10454","addressCountry":"US"},"openingHours":"Mo-Su 07:00-22:00","areaServed":["Manhattan","Bronx","New York City"],"priceRange":"$$"}
-  </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -68,7 +59,6 @@
     .section-sub{font-size:1rem;color:var(--gray);max-width:480px;line-height:1.7}
     .section-header{margin-bottom:60px}
 
-    #services{background:var(--gray-light)}
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
     .service-card{background:var(--white);border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);transition:transform 0.25s,box-shadow 0.25s;cursor:default}
     .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
@@ -76,7 +66,6 @@
     .service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--charcoal)}
     .service-card p{font-size:0.875rem;color:var(--gray);line-height:1.65}
 
-    #how-it-works{background:var(--white)}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
     .steps::before{content:'';position:absolute;top:36px;left:calc(16.6% + 20px);right:calc(16.6% + 20px);height:2px;background:linear-gradient(90deg,var(--blue-mid),var(--teal-light));z-index:0}
     .step{text-align:center;padding:0 32px;position:relative;z-index:1}
@@ -84,7 +73,6 @@
     .step h3{font-size:1.1rem;font-weight:700;color:var(--charcoal);margin-bottom:10px}
     .step p{font-size:0.875rem;color:var(--gray);line-height:1.65}
 
-    #contact{background:linear-gradient(135deg,#dce8f0 0%,#c4d6e3 100%)}
     .contact-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
     .contact-info h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--charcoal);margin-bottom:16px}
     .contact-info p{font-size:0.95rem;color:#4a6070;line-height:1.7;margin-bottom:32px}
@@ -92,15 +80,6 @@
     .info-icon{width:40px;height:40px;background:rgba(255,255,255,0.7);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
     .info-text .label{font-size:0.75rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
     .info-text .val{font-size:0.9rem;color:var(--charcoal);font-weight:500}
-    .contact-form{background:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.9);border-radius:24px;padding:40px;box-shadow:var(--shadow-lg)}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .form-group{margin-bottom:18px}
-    .form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--charcoal);margin-bottom:6px}
-    .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1.5px solid rgba(168,190,206,0.4);border-radius:12px;font-size:0.9rem;font-family:inherit;color:var(--charcoal);background:rgba(255,255,255,0.8);outline:none;transition:border-color 0.2s}
-    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--teal-light);box-shadow:0 0 0 3px rgba(45,125,110,0.1)}
-    .form-group textarea{resize:vertical;min-height:100px}
-    .form-submit{width:100%;background:var(--charcoal);color:var(--white);border:none;padding:15px;border-radius:999px;font-size:0.95rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all 0.2s}
-    .form-submit:hover{background:var(--navy);transform:translateY(-2px)}
 
     footer{background:var(--charcoal);color:rgba(255,255,255,0.7);padding:60px 6% 36px}
     .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:36px}
@@ -135,9 +114,7 @@
       nav{padding:16px 5%}
       .hero{padding:100px 5% 60px}
       section{padding:70px 5%}
-      .form-row{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr;gap:32px}
-      .contact-form{padding:28px 22px}
     }
     .nav-links.open{display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:8px 5% 16px;border-bottom:1px solid rgba(168,190,206,0.2);gap:0;z-index:99;animation:slideDown 0.45s cubic-bezier(0.4,0,0.2,1) forwards}
     .nav-links.open li{opacity:0;padding:14px 0;border-bottom:1px solid rgba(168,190,206,0.12);animation:fadeInItem 0.5s cubic-bezier(0.4,0,0.2,1) forwards}
@@ -179,115 +156,98 @@
     <li><a href="commercial.html">Commercial</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Order Pickup ↗</a>
+  <a href="index.html#contact" class="nav-cta">Order Pickup ↗</a>
   <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="hero" id="home">
+<section class="hero" style="min-height:60vh">
   <div class="hero-content fade-up">
-    <div class="hero-badge">✦ Manhattan Pickup & Delivery</div>
-    <h1>Professional Laundry Care, <em>Serving Manhattan</em></h1>
-    <p>Manhattan's favorite laundry pickup service. We come to you, handle everything, and deliver your clothes back fresh and folded — so you never have to leave your apartment.</p>
+    <div class="hero-badge">✦ Wash &amp; Fold Service</div>
+    <h1>Professional <em>Wash &amp; Fold</em></h1>
+    <p>Starting at $1.25/lb. Drop off your laundry or schedule a pickup — we wash, dry, and fold everything with care.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Order Pickup ↗</a>
-      <a href="#services" class="btn-secondary">View Services</a>
+      <a href="index.html#contact" class="btn-primary">Order Pickup ↗</a>
+      <a href="tel:3479188301" class="btn-secondary">Call Us ↗</a>
     </div>
-    <div class="hero-price-tag">Starting at <strong>$1.25/lb</strong> — Wash &amp; Fold</div>
-    <div class="hero-stats">
-      <div class="stat-badge"><div class="num">500+</div><div class="label">Happy Customers</div></div>
-      <div class="stat-badge"><div class="num">Same Day</div><div class="label">Service Available</div></div>
-      <div class="stat-badge"><div class="num">5★</div><div class="label">Rated in NYC</div></div>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="float-card"><div class="fc-icon">🚗</div><div class="fc-title">Free Pickup Available</div><div class="fc-sub">Schedule in seconds</div></div>
-    <div class="float-card"><div class="fc-icon">👕</div><div class="fc-title">Wash & Fold</div><div class="fc-sub">Ready same day</div></div>
   </div>
 </section>
 
-<section id="services">
-  <div class="section-header fade-up">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Every Laundry Service<br>You'll Ever Need</h2>
-    <p class="section-sub">From self-serve machines to full-service dry cleaning — all at 391 Brook Ave, Bronx.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card fade-up"><div class="service-icon">📥</div><h3>Drop-Off Service</h3><p>Leave your laundry with us and come back to fresh, neatly folded clothes. We handle everything while you go about your day.</p></div>
-    <div class="service-card fade-up"><div class="service-icon">🚗</div><h3>Pickup & Delivery</h3><p>We come to you. Schedule a pickup, we wash it, and deliver it back to your door — clean and ready to wear.</p></div>
-    <div class="service-card fade-up"><div class="service-icon">👕</div><h3>Wash & Fold</h3><p>Clothes sorted, washed with care, dried perfectly, and folded the way you like. Priced by the pound.</p></div>
-    <div class="service-card fade-up"><div class="service-icon">✨</div><h3>Dry Cleaning</h3><p>Suits, dresses, delicates — professionally cleaned and pressed. We treat every garment like it's our own.</p></div>
-    <div class="service-card fade-up"><div class="service-icon">🔵</div><h3>Self-Serve</h3><p>Modern high-efficiency washers and dryers available 7 days a week. Fast, affordable, and always clean.</p></div>
-  </div>
-</section>
-
-<section id="how-it-works">
+<section style="background:var(--white)">
   <div class="section-header fade-up" style="text-align:center">
     <div class="section-label">Simple Process</div>
-    <h2 class="section-title">Fresh Clothes in 3 Easy Steps</h2>
-    <p class="section-sub" style="margin:0 auto">No confusion, no hassle. Here's exactly how it works.</p>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub" style="margin:0 auto">Three easy steps to fresh, folded laundry.</p>
   </div>
   <div class="steps">
-    <div class="step fade-up"><div class="step-num">1</div><h3>Schedule or Drop In</h3><p>Book a pickup online or walk in anytime between 7am–10pm. We're always open and ready.</p></div>
-    <div class="step fade-up"><div class="step-num">2</div><h3>We Handle the Work</h3><p>Our team sorts, washes, dries, and folds your clothes with care using quality detergents.</p></div>
-    <div class="step fade-up"><div class="step-num">3</div><h3>Pick Up or Get Delivered</h3><p>Come grab your fresh clothes or have them delivered right to your door. That simple.</p></div>
+    <div class="step fade-up"><div class="step-num">1</div><h3>Drop Off or Schedule Pickup</h3><p>Bring your laundry to 391 Brook Ave or schedule a free pickup from your Manhattan apartment.</p></div>
+    <div class="step fade-up"><div class="step-num">2</div><h3>We Wash, Dry &amp; Fold</h3><p>Our team sorts your clothes, washes with quality detergents, dries to perfection, and folds with care.</p></div>
+    <div class="step fade-up"><div class="step-num">3</div><h3>Pick Up or We Deliver</h3><p>Grab your fresh clothes same day or next day — or we deliver right back to your door.</p></div>
   </div>
 </section>
 
-
-<section id="pricing" style="background:var(--gray-light)">
+<section style="background:var(--gray-light)">
   <div class="section-header fade-up" style="text-align:center">
     <div class="section-label">Transparent Pricing</div>
-    <h2 class="section-title">Simple. Fair. No Surprises.</h2>
-    <p class="section-sub" style="margin:0 auto">You know exactly what you pay before we pick up.</p>
+    <h2 class="section-title">Wash &amp; Fold Pricing</h2>
+    <p class="section-sub" style="margin:0 auto">Simple, fair pricing with no hidden fees.</p>
   </div>
-  <div class="services-grid" style="max-width:900px;margin:0 auto">
+  <div class="services-grid" style="max-width:960px;margin:0 auto">
     <div class="service-card fade-up" style="text-align:center">
       <div class="service-icon" style="margin:0 auto 20px">👕</div>
-      <h3>Wash & Fold</h3>
+      <h3>Wash &amp; Fold</h3>
       <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$1.25<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
-      <p>Washed, dried, and folded. Free pickup & delivery included.</p>
+      <p>10 lb minimum. Washed, dried, and neatly folded.</p>
     </div>
     <div class="service-card fade-up" style="text-align:center">
-      <div class="service-icon" style="margin:0 auto 20px">✨</div>
-      <h3>Dry Cleaning</h3>
-      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">Custom<span style="font-size:1rem;color:var(--gray);font-weight:500"> quote</span></div>
-      <p>Suits, dresses & delicates. Call us for a price before you drop off.</p>
+      <div class="service-icon" style="margin:0 auto 20px">⚡</div>
+      <h3>Rush Same-Day</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$2.50<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
+      <p>Need it fast? Drop off by noon, pick up by evening.</p>
     </div>
     <div class="service-card fade-up" style="text-align:center">
-      <div class="service-icon" style="margin:0 auto 20px">🔵</div>
-      <h3>Self-Serve</h3>
-      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$3.50<span style="font-size:1rem;color:var(--gray);font-weight:500">/wash</span></div>
-      <p>Coin & card machines available 7 days a week, 7am–10pm.</p>
+      <div class="service-icon" style="margin:0 auto 20px">🚗</div>
+      <h3>Free Delivery</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">20+<span style="font-size:1rem;color:var(--gray);font-weight:500"> lbs</span></div>
+      <p>Orders of 20 lbs or more get free delivery across Manhattan.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🪝</div>
+      <h3>Hangers</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$0.25<span style="font-size:1rem;color:var(--gray);font-weight:500">/item</span></div>
+      <p>Prefer your clothes on hangers? We've got you covered.</p>
     </div>
   </div>
-  <p class="fade-up" style="text-align:center;margin-top:32px;color:var(--gray);font-size:0.875rem">Minimum order 10 lbs for pickup & delivery. Free pickup within our service area.</p>
 </section>
 
-<section id="contact">
-  <div class="contact-inner">
-    <div class="contact-info fade-up">
-      <div class="section-label">Get in Touch</div>
-      <h2>Let's Make Laundry Easy for You</h2>
-      <p>Have a question or want to schedule a pickup? Fill out the form and we'll get back to you fast.</p>
-      <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><div class="label">Address</div><div class="val">391 Brook Avenue, Bronx, NY 10454</div></div></div>
-      <div class="info-item"><div class="info-icon">📞</div><div class="info-text"><div class="label">Phone</div><div class="val">(347) 918-8301</div></div></div>
-      <div class="info-item"><div class="info-icon">🕐</div><div class="info-text"><div class="label">Hours</div><div class="val">Monday – Sunday &nbsp;|&nbsp; 7:00 AM – 10:00 PM</div></div></div>
+<section style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+  <div class="services-grid" style="max-width:960px;margin:0 auto">
+    <div class="service-card fade-up">
+      <div class="service-icon">🕐</div>
+      <h3>How long does it take?</h3>
+      <p>Same day if dropped off by noon. Otherwise, your laundry will be ready the next day.</p>
     </div>
-    <div class="contact-form fade-up">
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
-        </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="john@email.com" required /></div>
-        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(718) 555-0000" /></div>
-        <div class="form-group"><label>Service Needed</label>
-          <select><option value="">Select a service...</option><option>Drop-Off</option><option>Pickup & Delivery</option><option>Wash & Fold</option><option>Dry Cleaning</option><option>Self-Serve</option><option>Other</option></select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you need..."></textarea></div>
-        <button type="submit" class="form-submit">Send Message ↗</button>
-      </form>
+    <div class="service-card fade-up">
+      <div class="service-icon">🔵</div>
+      <h3>Are colors separated?</h3>
+      <p>Yes, always. We sort every load by color and fabric type to protect your clothes.</p>
     </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🧴</div>
+      <h3>What detergent do you use?</h3>
+      <p>We use Tide Free &amp; Gentle as our standard. Hypoallergenic options available on request.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">Ready to Get Started?</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Order pickup online or give us a call.</p>
+    <a href="index.html#contact" class="btn-primary" style="background:var(--teal)">Order Pickup ↗</a>
   </div>
 </section>
 
@@ -300,11 +260,11 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Drop-Off</a></li>
-        <li><a href="#services">Pickup & Delivery</a></li>
-        <li><a href="#services">Wash & Fold</a></li>
-        <li><a href="#services">Dry Cleaning</a></li>
-        <li><a href="#services">Self-Serve</a></li>
+        <li><a href="wash-and-fold.html">Wash &amp; Fold</a></li>
+        <li><a href="pickup-delivery.html">Pickup &amp; Delivery</a></li>
+        <li><a href="self-serve.html">Self-Serve</a></li>
+        <li><a href="commercial.html">Commercial</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -340,12 +300,6 @@
       nav.classList.add('open');
       burger.classList.add('open');
     }
-  }
-  function handleSubmit(e){
-    e.preventDefault();
-    const btn=e.target.querySelector('.form-submit');
-    btn.textContent='✓ Message Sent!';btn.style.background='#2d7d6e';
-    setTimeout(()=>{btn.textContent='Send Message ↗';btn.style.background='';e.target.reset()},3000);
   }
 </script>
 </body>
