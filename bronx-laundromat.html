@@ -33,8 +33,10 @@
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{text-decoration:none;color:var(--gray);font-size:0.9rem;font-weight:500;transition:color 0.2s}
     .nav-links a:hover{color:var(--charcoal)}
-    .nav-cta{background:var(--charcoal);color:var(--white);border:none;padding:10px 22px;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
-    .nav-cta:hover{background:var(--navy);transform:translateY(-1px)}
+    .nav-cta{background:linear-gradient(135deg,#2d7d6e,#3d9e8c);color:#fff;border:none;padding:11px 24px;border-radius:999px;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 16px rgba(45,125,110,0.35);letter-spacing:0.01em}
+    .nav-cta:hover{background:linear-gradient(135deg,#256860,#2d7d6e);transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,125,110,0.5)}
+    .nav-cta .arrow{display:inline-block;transition:transform 0.2s}
+    .nav-cta:hover .arrow{transform:translateX(3px)}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
     .hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);border-radius:2px}
 
@@ -46,8 +48,11 @@
     .hero h1 em{font-style:normal;color:var(--teal)}
     .hero p{font-size:1.05rem;color:#4a6070;line-height:1.7;margin-bottom:36px;max-width:480px}
     .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-    .btn-primary{background:var(--charcoal);color:var(--white);padding:14px 28px;border-radius:999px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
-    .btn-primary:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,43,56,0.2)}
+    .btn-primary{background:linear-gradient(135deg,#2d7d6e,#3d9e8c);color:#fff;padding:16px 36px;border-radius:999px;font-size:0.95rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.25s;box-shadow:0 6px 24px rgba(45,125,110,0.4);letter-spacing:0.01em;animation:pulse-glow 3s ease-in-out infinite}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 6px 24px rgba(45,125,110,0.4)}50%{box-shadow:0 6px 36px rgba(45,125,110,0.7)}}
+    .btn-primary:hover{background:linear-gradient(135deg,#256860,#2d7d6e);transform:translateY(-3px);box-shadow:0 12px 40px rgba(45,125,110,0.6);animation:none}
+    .btn-primary .arrow{display:inline-block;transition:transform 0.2s}
+    .btn-primary:hover .arrow{transform:translateX(4px)}
     .btn-secondary{background:rgba(255,255,255,0.7);color:var(--charcoal);padding:14px 28px;border-radius:999px;font-size:0.9rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.9);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
     .btn-secondary:hover{background:rgba(255,255,255,0.9);transform:translateY(-2px)}
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap}
@@ -99,8 +104,8 @@
     .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1.5px solid rgba(168,190,206,0.4);border-radius:12px;font-size:0.9rem;font-family:inherit;color:var(--charcoal);background:rgba(255,255,255,0.8);outline:none;transition:border-color 0.2s}
     .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--teal-light);box-shadow:0 0 0 3px rgba(45,125,110,0.1)}
     .form-group textarea{resize:vertical;min-height:100px}
-    .form-submit{width:100%;background:var(--charcoal);color:var(--white);border:none;padding:15px;border-radius:999px;font-size:0.95rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all 0.2s}
-    .form-submit:hover{background:var(--navy);transform:translateY(-2px)}
+    .form-submit{width:100%;background:linear-gradient(135deg,#2d7d6e,#3d9e8c);color:#fff;border:none;padding:16px;border-radius:999px;font-size:0.95rem;font-weight:700;font-family:inherit;cursor:pointer;transition:all 0.25s;box-shadow:0 4px 16px rgba(45,125,110,0.35)}
+    .form-submit:hover{background:linear-gradient(135deg,#256860,#2d7d6e);transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,125,110,0.5)}
 
     footer{background:var(--charcoal);color:rgba(255,255,255,0.7);padding:60px 6% 36px}
     .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:36px}
@@ -185,7 +190,7 @@
     <li><a href="commercial.html">Commercial</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
-  <a href="order.html" class="nav-cta">Order Pickup ↗</a>
+  <a href="order.html" class="nav-cta"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
   <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
@@ -195,7 +200,7 @@
     <h1>The Bronx's Favorite <em>Laundromat</em></h1>
     <p>Bronx-based, locally owned. State-of-the-art machines, wash &amp; fold, dry cleaning, and drop-off service — right here at 391 Brook Avenue.</p>
     <div class="hero-buttons">
-      <a href="order.html" class="btn-primary">Order Pickup ↗</a>
+      <a href="order.html" class="btn-primary"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
       <a href="#services" class="btn-secondary">View Services</a>
     </div>
     <div class="hero-price-tag">Starting at <strong>$1.25/lb</strong> — Wash &amp; Fold</div>
