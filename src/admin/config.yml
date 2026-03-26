@@ -2,8 +2,7 @@ backend:
   name: github
   repo: happymangotv-ui/city-laundromat
   branch: main
-  base_url: https://city-laundromat.pages.dev
-  auth_endpoint: /api/auth
+  auth_type: pkce
 
 media_folder: src/images
 public_folder: /images
