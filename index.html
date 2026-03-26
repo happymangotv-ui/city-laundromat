@@ -184,19 +184,7 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo" style="text-decoration:none">The City <span>Laundromat</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
-    <li style="display:none"><a href="wash-and-fold.html">Wash &amp; Fold</a></li>
-    <li><a href="pickup-delivery.html">Pickup &amp; Delivery</a></li>
-    <li><a href="self-serve.html">Self-Serve</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-  <a href="order.html" class="nav-cta"><span>Schedule a Pickup</span><span class="arrow" style="margin-left:6px">→</span></a>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
-</nav>
+<div id="nav-placeholder"></div>
 
 <section class="hero" id="home">
   <div class="hero-content fade-up">
@@ -237,54 +225,15 @@
 
 
 
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo">The City <span>Laundromat</span></div>
-      <p>Professional laundry services serving Manhattan and the Bronx. Clean clothes, happy customers — every single time.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Drop-Off</a></li>
-        <li><a href="#services">Pickup & Delivery</a></li>
-        <li><a href="#services">Wash & Fold</a></li>
-        <li><a href="#services">Self-Serve</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Info</h4>
-      <ul>
-        <li><span>📍 391 Brook Ave, Bronx NY 10454</span></li>
-        <li><span>📞 (347) 758-7966</span></li>
-        <li><span>✉️ <a href="mailto:Uticalaundry@gmail.com" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s">Uticalaundry@gmail.com</a></span></li>
-        <li><span>🕐 Mon–Sun: 7am – 10pm</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 The City Laundromat. All rights reserved.</span>
-    <span>391 Brook Ave, Bronx, NY 10454</span>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80) });
   },{threshold:0.12});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
-  function setNavH(){document.documentElement.style.setProperty("--nav-h", document.querySelector("nav").offsetHeight+"px")}
-  window.addEventListener("resize",setNavH);
-  setNavH();
-  function toggleNav(){
-    const nav = document.getElementById('navLinks');
-    const burger = document.getElementById('hamburger');
-    if(nav.classList.contains('open')){
-      nav.classList.add('closing');
-      burger.classList.remove('open');
-      setTimeout(()=>{
-        nav.classList.remove('open','closing');
-      }, 400);
+  ;
+  , 400);
     } else {
       nav.classList.add('open');
       burger.classList.add('open');
@@ -297,5 +246,6 @@
     setTimeout(()=>{btn.textContent='Send Message ↗';btn.style.background='';e.target.reset()},3000);
   }
 </script>
+<script src="/components.js"></script>
 </body>
 </html>
