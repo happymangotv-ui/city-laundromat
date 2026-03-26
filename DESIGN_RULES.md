@@ -51,11 +51,13 @@
 
 ## Content Rules
 
-- **Rush price:** $1.40/lb
-- **Wash & fold price:** $1.25/lb
-- **Self-serve price:** $2.69/wash
-- **Booking URL:** Always use `{{ business.booking_url }}` — never hardcode
-- **Phone:** Always use `{{ business.phone }}` — never hardcode
+- **Rush price:** `{{ business.prices.rush }}` — NEVER hardcode
+- **Wash & fold price:** `{{ business.prices.wash_fold }}` — NEVER hardcode
+- **Self-serve price:** `{{ business.prices.self_serve }}` — NEVER hardcode
+- **Booking URL:** `{{ business.booking_url }}` — NEVER hardcode
+- **Phone:** `{{ business.phone }}` — NEVER hardcode
+- **Address:** `{{ business.full_address }}` — NEVER hardcode
+- Rule: if it's editable in the /admin panel, it must use a template variable everywhere on the site
 - **Wash & Fold page:** Hidden from nav (page exists but not linked)
 - **No mention of clothes on hangers**
 - **No "no minimum order"**
