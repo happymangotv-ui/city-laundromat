@@ -8,15 +8,19 @@
   "state": "NY",
   "zip": "10454",
   "full_address": "391 Brook Ave, Bronx NY 10454",
-  "hours": "Mon–Sun: 7am – 10pm",
-  "pickup_hours": "7AM–8PM",
+  "hours": "MonâSun: 7am â 10pm",
+  "pickup_hours": "7AM-8PM",
   "tagline": "Professional laundry services serving Manhattan and the Bronx.",
   "prices": {
     "wash_fold": "1.25",
-    "rush": "1.40",
+    "rush": "1.42",
     "self_serve": "2.69"
   },
-  "service_areas": ["Upper East Side", "Upper West Side", "Midtown"],
+  "service_areas": [
+    "Upper East Side",
+    "Upper West Side",
+    "Midtown"
+  ],
   "booking_url": "https://app.trycents.com/new-order/YjUw/home",
   "commercial_phone": "(917) 825-9176",
   "commercial_phone_raw": "9178259176"
