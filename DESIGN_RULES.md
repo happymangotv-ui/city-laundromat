@@ -4,6 +4,12 @@
 
 ---
 
+## Spacing
+
+- **Section padding:** `60px 6%` (desktop), `44px 5%` (mobile) — applied globally, never override per-section unless absolutely necessary
+- **Section header margin-bottom:** `40px` — space between the label/title and the content below it
+- Gaps between sections should feel tight and intentional — not airy. When in doubt, reduce padding, not increase it.
+
 ## Layout
 
 - **Hero section:** Always use `min-height: 60vh` (NOT 100vh). This keeps the nav-to-content spacing tight and consistent.
