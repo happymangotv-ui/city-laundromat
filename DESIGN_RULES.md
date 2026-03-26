@@ -38,6 +38,7 @@
 ## Components
 
 - **Service cards:** Equal height (`height: 100%`, `display: flex`, `flex-direction: column`). All cards in a grid must be same size.
+- **Odd number of cards (3, 5, etc.):** Always force them onto one row using `grid-template-columns: repeat(N, 1fr)`. Never let an odd card sit alone on a second row — it looks unintentional.
 - **Buttons (primary):** Teal gradient, border-radius 999px, font-weight 700
 - **Buttons (secondary):** White background, border, border-radius 999px
 - **Hero badge:** Pill shape, white bg, teal text, uppercase, small font
