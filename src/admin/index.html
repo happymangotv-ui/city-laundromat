@@ -144,7 +144,7 @@ async function init() {
     const fileRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, { headers: { Authorization: `token ${token}` } });
     const fileData = await fileRes.json();
     fileSha = fileData.sha;
-    const data = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+    const data = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
     document.getElementById('phone').value = data.phone || '';
     document.getElementById('email').value = data.email || '';
     document.getElementById('full_address').value = data.full_address || '';
@@ -168,7 +168,7 @@ async function save() {
   try {
     const fileRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, { headers: { Authorization: `token ${token}` } });
     const fileData = await fileRes.json();
-    const current = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+    const current = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
     current.phone = document.getElementById('phone').value;
     current.phone_raw = document.getElementById('phone').value.replace(/\D/g,'');
     current.email = document.getElementById('email').value;
