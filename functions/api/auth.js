@@ -1,5 +1,3 @@
-// Decap CMS GitHub OAuth handler for Cloudflare Pages Functions
-
 export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
@@ -19,7 +17,7 @@ export async function onRequest(context) {
     return Response.redirect(`https://github.com/login/oauth/authorize?${params}`, 302);
   }
 
-  // Step 2: Handle callback, exchange code for token
+  // Step 2: Handle callback
   if (path === '/api/auth/callback') {
     const code = url.searchParams.get('code');
     if (!code) return new Response('Missing code', { status: 400 });
@@ -32,21 +30,26 @@ export async function onRequest(context) {
     const tokenData = await tokenRes.json();
     const token = tokenData.access_token;
 
-    if (!token) return new Response('Auth failed', { status: 401 });
+    if (!token) {
+      return new Response(`Auth failed: ${JSON.stringify(tokenData)}`, { status: 401 });
+    }
 
-    // Return script that posts token back to Decap CMS opener
+    const content = JSON.stringify({ token, provider: 'github' });
     const html = `<!DOCTYPE html><html><body><script>
       (function() {
-        function receiveMessage(e) {
-          window.opener.postMessage(
-            'authorization:github:success:${JSON.stringify({ token, provider: 'github' }).replace(/'/g, "\\'")}',
-            e.origin
-          );
+        var content = ${JSON.stringify(content)};
+        var msg = 'authorization:github:success:' + content;
+        function attempt() {
+          if (window.opener) {
+            window.opener.postMessage(msg, '*');
+            setTimeout(function() { window.close(); }, 1000);
+          } else {
+            setTimeout(attempt, 100);
+          }
         }
-        window.addEventListener("message", receiveMessage, false);
-        window.opener.postMessage("authorizing:github", "*");
+        attempt();
       })();
-    </script></body></html>`;
+    </script><p>Authenticating...</p></body></html>`;
 
     return new Response(html, { headers: { 'Content-Type': 'text/html' } });
   }
