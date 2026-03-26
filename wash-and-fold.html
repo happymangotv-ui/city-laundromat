@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wash &amp; Fold Service – The City Laundromat</title>
-  <meta name="description" content="Professional wash & fold laundry service starting at $1.25/lb. Same-day service available. Drop off at 391 Brook Ave, Bronx or schedule a pickup." />
+  <meta name="description" content="Professional wash & fold laundry service starting at $1.25/lb. Professional wash &amp; fold starting at $1.25/lb. 48-hour turnaround. Drop off at 391 Brook Ave, Bronx or schedule a pickup." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#c4d6e3" />
   <style>
@@ -15,7 +15,7 @@
       --white:#ffffff;--gray:#6b7280;--gray-light:#f3f6f8;
       --shadow:0 8px 32px rgba(26,43,56,0.10);--shadow-lg:0 20px 60px rgba(26,43,56,0.14);
     }
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;background:#fff}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--charcoal);background:var(--white);overflow-x:hidden}
 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 4%;background:rgba(255,255,255,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(168,190,206,0.25)}
@@ -107,6 +107,7 @@
     @media(max-width:1024px){
       .nav-links{display:none}
       .hamburger{display:flex}
+      .nav-cta{display:none}
     }
     @media(max-width:900px){
       .hero-visual{display:none}
@@ -121,7 +122,7 @@
       section{padding:70px 5%}
       .footer-top{grid-template-columns:1fr;gap:32px}
     }
-    .nav-links.open{display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:8px 5% 16px;border-bottom:1px solid rgba(168,190,206,0.2);gap:0;z-index:99;animation:slideDown 0.45s cubic-bezier(0.4,0,0.2,1) forwards}
+    .nav-links.open{display:flex;flex-direction:column;position:fixed;top:var(--nav-h,70px);left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:8px 5% 16px;border-bottom:1px solid rgba(168,190,206,0.2);gap:0;z-index:99;animation:slideDown 0.45s cubic-bezier(0.4,0,0.2,1) forwards}
     .nav-links.open li{opacity:0;border-bottom:1px solid rgba(168,190,206,0.12);animation:fadeInItem 0.5s cubic-bezier(0.4,0,0.2,1) forwards}.nav-links.open li a{display:block;width:100%;padding:14px 0}
     .nav-links.open li:last-child{border-bottom:none}
     .nav-links.open li:nth-child(1){animation-delay:0.10s}
@@ -172,7 +173,7 @@
     <p>Starting at $1.25/lb. Drop off your laundry or schedule a pickup — we wash, dry, and fold everything with care.</p>
     <div class="hero-buttons">
       <a href="order.html" class="btn-primary"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
-      <a href="tel:3479188301" class="btn-secondary">Call Us ↗</a>
+      <a href="tel:3477587966" class="btn-secondary">Call Us ↗</a>
     </div>
   </div>
 </section>
@@ -184,9 +185,9 @@
     <p class="section-sub" style="margin:0 auto">Three easy steps to fresh, folded laundry.</p>
   </div>
   <div class="steps">
-    <div class="step fade-up"><div class="step-num">1</div><h3>Drop Off or Schedule Pickup</h3><p>Bring your laundry to 391 Brook Ave or schedule a free pickup from your Manhattan apartment.</p></div>
+    <div class="step fade-up"><div class="step-num">1</div><h3>Drop Off or Schedule Pickup</h3><p>Bring your laundry to 391 Brook Ave or schedule a pickup from your Manhattan apartment.</p></div>
     <div class="step fade-up"><div class="step-num">2</div><h3>We Wash, Dry &amp; Fold</h3><p>Our team sorts your clothes, washes with quality detergents, dries to perfection, and folds with care.</p></div>
-    <div class="step fade-up"><div class="step-num">3</div><h3>Pick Up or We Deliver</h3><p>Grab your fresh clothes same day or next day — or we deliver right back to your door.</p></div>
+    <div class="step fade-up"><div class="step-num">3</div><h3>Pick Up or We Deliver</h3><p>Your clean laundry ready for pickup or delivered right back to your door.</p></div>
   </div>
 </section>
 
@@ -198,28 +199,23 @@
   </div>
   <div class="services-grid" style="max-width:960px;margin:0 auto">
     <div class="service-card fade-up" style="text-align:center">
-      <div class="service-icon" style="margin:0 auto 20px">👕</div>
+      <div class="service-icon" style="margin:0 auto 20px"></div>
       <h3>Wash &amp; Fold</h3>
       <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$1.25<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
-      <p>10 lb minimum. Washed, dried, and neatly folded.</p>
+      <p>Washed, dried, and neatly folded. No minimum order.</p>
     </div>
     <div class="service-card fade-up" style="text-align:center">
       <div class="service-icon" style="margin:0 auto 20px">⚡</div>
-      <h3>Rush Same-Day</h3>
-      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$2.50<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
-      <p>Need it fast? Drop off by noon, pick up by evening.</p>
+      <h3>Rush Service</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$1.45<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
+      <p>Rush service available. Call to schedule.</p>
     </div>
-    <div class="service-card fade-up" style="text-align:center">
-      <div class="service-icon" style="margin:0 auto 20px">🚗</div>
-      <h3>Free Delivery</h3>
-      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">20+<span style="font-size:1rem;color:var(--gray);font-weight:500"> lbs</span></div>
-      <p>Orders of 20 lbs or more get free delivery across Manhattan.</p>
     </div>
     <div class="service-card fade-up" style="text-align:center">
       <div class="service-icon" style="margin:0 auto 20px">🪝</div>
-      <h3>Hangers</h3>
-      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">$0.25<span style="font-size:1rem;color:var(--gray);font-weight:500">/item</span></div>
-      <p>Prefer your clothes on hangers? We've got you covered.</p>
+      <h3>Clothes on Hangers</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">Available<span style="font-size:1rem;color:var(--gray);font-weight:500"> on request</span></div>
+      <p>Prefer your clothes on hangers? Just ask when you drop off or schedule your pickup.</p>
     </div>
   </div>
 </section>
@@ -233,17 +229,17 @@
     <div class="service-card fade-up">
       <div class="service-icon">🕐</div>
       <h3>How long does it take?</h3>
-      <p>Same day if dropped off by noon. Otherwise, your laundry will be ready the next day.</p>
+      <p>Standard turnaround is 48 hours.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-icon">🔵</div>
       <h3>Are colors separated?</h3>
-      <p>Yes, always. We sort every load by color and fabric type to protect your clothes.</p>
+      <p>Yes — color separation is available for an additional charge. Just let us know when you drop off or schedule your pickup.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-icon">🧴</div>
       <h3>What detergent do you use?</h3>
-      <p>We use Tide Free &amp; Gentle as our standard. Hypoallergenic options available on request.</p>
+      <p>We use Clear as our standard. Hypoallergenic options available on request.</p>
     </div>
   </div>
 </section>
@@ -276,7 +272,8 @@
       <h4>Info</h4>
       <ul>
         <li><span>📍 391 Brook Ave, Bronx NY 10454</span></li>
-        <li><span>📞 (347) 918-8301</span></li>
+        <li><span>📞 (347) 758-7966</span></li>
+        <li><span>✉️ <a href="mailto:Uticalaundry@gmail.com" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s">Uticalaundry@gmail.com</a></span></li>
         <li><span>🕐 Mon–Sun: 7am – 10pm</span></li>
       </ul>
     </div>
@@ -292,6 +289,9 @@
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80) });
   },{threshold:0.12});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+  function setNavH(){document.documentElement.style.setProperty("--nav-h", document.querySelector("nav").offsetHeight+"px")}
+  window.addEventListener("resize",setNavH);
+  setNavH();
   function toggleNav(){
     const nav = document.getElementById('navLinks');
     const burger = document.getElementById('hamburger');
