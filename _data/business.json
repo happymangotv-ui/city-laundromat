@@ -13,7 +13,7 @@
   "tagline": "Professional laundry services serving Manhattan and the Bronx.",
   "prices": {
     "wash_fold": "1.25",
-    "rush": "1.42",
+    "rush": "1.42888",
     "self_serve": "2.69"
   },
   "service_areas": [
