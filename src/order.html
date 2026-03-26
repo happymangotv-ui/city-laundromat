@@ -1,0 +1,14 @@
+{% extends "base.njk" %}
+{% set title = "Schedule a Pickup – The City Laundromat" %}
+{% set description = "Schedule laundry pickup online." %}
+
+{% block content %}
+<iframe
+    src="{{ business.booking_url }}"
+    allow="payment"
+    loading="eager"
+    title="Order Pickup – The City Laundromat"
+  ></iframe>
+</body>
+</html>
+{% endblock %}

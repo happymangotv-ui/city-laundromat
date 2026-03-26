@@ -1,0 +1,51 @@
+{% extends "base.njk" %}
+{% set title = "Bronx Laundromat – The City Laundromat" %}
+
+{% block content %}
+<section class="hero" id="home">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ Bronx's #1 Laundromat</div>
+    <h1>The Bronx's Favorite <em>Laundromat</em></h1>
+    <p>Bronx-based, locally owned. State-of-the-art machines, wash &amp; fold, and drop-off service — right here at 391 Brook Avenue.</p>
+    <div class="hero-buttons">
+      <a href="order.html" class="btn-primary"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+    <div class="hero-price-tag">Starting at <strong>$1.25/lb</strong> — Wash &amp; Fold</div>
+    </div>
+</section>
+
+<section id="services">
+  <div class="section-header fade-up">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Every Laundry Service<br>You'll Ever Need</h2>
+    <p class="section-sub">Drop-off, wash &amp; fold, self-serve, and pickup &amp; delivery — all at 391 Brook Ave, Bronx.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up"><div class="service-icon">📥</div><h3>Drop-Off Service</h3><p>Leave your laundry with us and come back to fresh, neatly folded clothes. We handle everything while you go about your day.</p></div>
+    <div class="service-card fade-up"><div class="service-icon">🚗</div><h3>Pickup & Delivery</h3><p>We come to you. Schedule a pickup, we wash it, and deliver it back to your door — clean and ready to wear.</p></div>
+    <div class="service-card fade-up"><div class="service-icon"></div><h3>Wash & Fold</h3><p>Clothes sorted, washed with care, dried perfectly, and folded the way you like. Priced by the pound.</p></div>
+    <div class="service-card fade-up"><div class="service-icon">🔵</div><h3>Self-Serve</h3><p>Modern high-efficiency washers and dryers available 7 days a week. Fast, affordable, and always clean.</p></div>
+  </div>
+</section>
+
+
+
+
+
+
+<section id="order" style="padding:0;background:#0f1a14;">
+  <div style="max-width:1100px;margin:0 auto;padding:60px 20px 20px;text-align:center;">
+    <div class="section-label">Schedule a Pickup</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:#111827;margin-bottom:8px;">Order Pickup & Delivery</h2>
+    <p style="color:#4b5563;margin-bottom:32px;">Book your laundry pickup in minutes. We handle the rest.</p>
+  </div>
+  <iframe
+    src="{{ business.booking_url }}"
+    style="width:100%;height:800px;border:none;display:block;"
+    allow="payment"
+    loading="lazy"
+    title="Order Pickup - The City Laundromat"
+  ></iframe>
+</section>
+{% endblock %}

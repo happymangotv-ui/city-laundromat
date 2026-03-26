@@ -3,3 +3,10 @@
 
 # Wrangler
 .wrangler/
+
+# Eleventy output
+_site/
+
+# Node
+node_modules/
+*.tmp

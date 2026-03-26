@@ -1,0 +1,84 @@
+{% extends "base.njk" %}
+{% set title = "About – The City Laundromat" %}
+{% set description = "Learn about The City Laundromat. Bronx-born, Manhattan-ready." %}
+
+{% block content %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ About Us</div>
+    <h1>We Make Laundry Day <em>Disappear</em></h1>
+    <p>Bronx-born. Manhattan-ready. We're on a mission to give New Yorkers their time back.</p>
+    <div class="hero-buttons">
+      <a href="order.html" class="btn-primary">Get in Touch ↗</a>
+      <a href="tel:{{ business.phone_raw }}" class="btn-secondary">Call Us ↗</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="section-header fade-up">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">From the Neighborhood<br>to All of Manhattan</h2>
+  </div>
+  <div class="services-grid" style="max-width:720px">
+    <div class="service-card fade-up" style="grid-column:1/-1">
+      <p style="font-size:1rem;line-height:1.8;color:var(--charcoal)">The City Laundromat has served the Bronx community for years. What started as a neighborhood laundromat at 391 Brook Avenue has grown into a full-service operation with Manhattan pickup and delivery. We built our reputation on quality, reliability, and treating every customer like family.</p>
+      
+      <p style="font-size:1rem;line-height:1.8;color:var(--charcoal);margin-top:16px">Our mission is simple: give New Yorkers their time back. Whether you drop off a bag at our Bronx location or schedule a pickup from your home, we handle the work so you don't have to.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">What We Stand For</div>
+    <h2 class="section-title">Our Values</h2>
+  </div>
+  <div class="services-grid" style="max-width:960px;margin:0 auto">
+    <div class="service-card fade-up">
+      <div class="service-icon">✨</div>
+      <h3>Quality</h3>
+      <p>Every load is treated with care. We sort by color, use premium detergents, and fold everything neatly.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">⚡</div>
+      <h3>Reliability</h3>
+      <p>48-hour turnaround guaranteed. Drop off or schedule a pickup and get your clothes back clean, folded, and on time.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🚗</div>
+      <h3>Convenience</h3>
+      <p>We come to you. Free pickup and delivery across Manhattan so you never have to leave your apartment.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🌿</div>
+      <h3>Care</h3>
+      <p>We use Clear detergent. Hypoallergenic and fragrance-free options are available on request. Clothes are sorted, washed carefully, and returned neatly folded.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">The People</div>
+    <h2 class="section-title">Our Team</h2>
+  </div>
+  <div class="services-grid" style="max-width:720px;margin:0 auto">
+    <div class="service-card fade-up" style="grid-column:1/-1;text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">👥</div>
+      <h3>Friendly, Professional Laundry Specialists</h3>
+      <p>Our team is trained in fabric care, stain treatment, and careful garment handling. Every person on our staff takes pride in making sure your clothes come back looking their best. From the attendants at our Bronx location to the drivers delivering across Manhattan — we're here to make laundry easy for you.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">Ready to Get Started?</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Order pickup online or give us a call.</p>
+    <a href="order.html" class="btn-primary" style="background:var(--teal)"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
+  </div>
+</section>
+{% endblock %}
