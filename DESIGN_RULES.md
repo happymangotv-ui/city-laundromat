@@ -52,6 +52,10 @@
 - Never abbreviate to just "391 Brook Ave" or "Brook Ave, Bronx"
 - Use `{{ business.full_address }}` in templates
 
+## Iframe / Booking Widget
+- **Cents iframe ONLY on `order.html`** — never on any other page. No exceptions.
+- All other pages link to `order.html` for booking — they never embed the iframe directly.
+
 ## Content Rules
 
 - **Rush price:** `{{ business.prices.rush }}` — NEVER hardcode
