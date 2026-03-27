@@ -89,7 +89,13 @@
 
   <div class="card">
     <h2>Hero Image</h2>
-    <div class="field"><label>Image URL (appears on all page headers)</label><input id="hero_image" type="text" placeholder="https://images.unsplash.com/..."></div>
+    <p style="font-size:13px;color:#888;margin-bottom:16px;line-height:1.6">
+      To use a photo from your computer:<br>
+      1. Upload it to <a href="https://drive.google.com" target="_blank" style="color:#2d7d6e">Google Drive</a><br>
+      2. Right-click the file → <strong>Share</strong> → set to <strong>"Anyone with the link"</strong><br>
+      3. Click <strong>"Copy link"</strong> and paste it below — we'll handle the rest
+    </p>
+    <div class="field"><label>Image Link (Google Drive share link or direct URL)</label><input id="hero_image" type="text" placeholder="https://drive.google.com/file/d/..."></div>
   </div>
 
   <div class="card">
@@ -185,7 +191,13 @@ async function save() {
     current.prices.rush = document.getElementById('price_rush').value;
     current.prices.self_serve = document.getElementById('price_self_serve').value;
     current.booking_url = document.getElementById('booking_url').value;
-    current.hero_image = document.getElementById('hero_image').value;
+    // Auto-convert Google Drive share link to direct image URL
+    let heroImg = document.getElementById('hero_image').value.trim();
+    const driveMatch = heroImg.match(/\/d\/([a-zA-Z0-9_-]{10,})/);
+    if (driveMatch) {
+      heroImg = `https://drive.google.com/uc?export=view&id=${driveMatch[1]}`;
+    }
+    current.hero_image = heroImg;
     current.commercial_phone = document.getElementById('commercial_phone').value;
     current.commercial_phone_raw = document.getElementById('commercial_phone').value.replace(/\D/g,'');
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
