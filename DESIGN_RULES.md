@@ -39,7 +39,8 @@
 
 - **Service cards:** Equal height (`height: 100%`, `display: flex`, `flex-direction: column`). All cards in a grid must be same size.
 - **Emoji icons:** Every service card MUST have an emoji in `.service-icon`. Never leave it empty. Use `style="margin:0 auto 20px"` to center it.
-- **Icon alignment:** When cards have centered text (`style="text-align:center"`), always add `style="margin:0 auto 20px"` to `.service-icon` so the icon centers above the text. Never left-align an icon when the card text is centered.
+- **Icon alignment:** ALL service cards must have `style="text-align:center"` and `.service-icon` must have `style="margin:0 auto 20px"`. No exceptions. Left-aligned icons are always wrong.
+- **⚠️ After any revert or rollback:** Immediately audit pickup-delivery.html service area cards (UES/UWS/Midtown) and pricing cards to confirm they still have `text-align:center` and `margin:0 auto 20px`. Reverts frequently lose these fixes.
 - **Odd number of cards (3, 5, etc.):** Always force them onto one row using `grid-template-columns: repeat(N, 1fr)`. Never let an odd card sit alone on a second row — it looks unintentional.
 - **Buttons (primary):** Teal gradient, border-radius 999px, font-weight 700
 - **Buttons (secondary):** White background, border, border-radius 999px
