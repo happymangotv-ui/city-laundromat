@@ -9,10 +9,9 @@
     <h1>Commercial Laundry for <em>NYC Businesses</em></h1>
     <p>We offer commercial laundry services for businesses. Get in touch to discuss your needs and get a custom quote.</p>
     <div class="hero-buttons">
-      <a href="order.html" class="btn-primary">Get a Quote ↗</a>
-      <a href="tel:{{ business.commercial_phone_raw }}" class="btn-secondary">Call Us ↗</a>
+      <a href="tel:{{ business.commercial_phone_raw }}" class="btn-primary" style="background:var(--teal)"><span>Call {{ business.commercial_phone }}</span></a>
     </div>
-</div>
+  </div>
   <div class="hero-visual">
     <div class="hero-img-wrap">
       <img src="{{ business.hero_image }}" alt="{{ business.name }}" />

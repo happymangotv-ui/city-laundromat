@@ -9,10 +9,9 @@
     <h1>Self-Serve Laundry <em>in the Bronx</em></h1>
     <p>Open 7 days a week. Modern machines, clean facility, affordable prices.</p>
     <div class="hero-buttons">
-      <a href="#find-us" class="btn-primary">Get Directions ↗</a>
-      <a href="tel:{{ business.phone_raw }}" class="btn-secondary">Call Us ↗</a>
+      <a href="tel:{{ business.phone_raw }}" class="btn-primary"><span>Call {{ business.phone }}</span></a><a href="order.html" class="btn-secondary">Schedule Pickup</a>
     </div>
-</div>
+  </div>
   <div class="hero-visual">
     <div class="hero-img-wrap">
       <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
