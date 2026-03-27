@@ -195,7 +195,7 @@ async function save() {
     let heroImg = document.getElementById('hero_image').value.trim();
     const driveMatch = heroImg.match(/\/d\/([a-zA-Z0-9_-]{10,})/);
     if (driveMatch) {
-      heroImg = `https://drive.google.com/uc?export=view&id=${driveMatch[1]}`;
+      heroImg = `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1200`;
     }
     current.hero_image = heroImg;
     current.commercial_phone = document.getElementById('commercial_phone').value;
