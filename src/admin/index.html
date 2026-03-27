@@ -89,13 +89,19 @@
 
   <div class="card">
     <h2>Hero Image</h2>
-    <p style="font-size:13px;color:#888;margin-bottom:16px;line-height:1.6">
-      To use a photo from your computer:<br>
-      1. Upload it to <a href="https://drive.google.com" target="_blank" style="color:#2d7d6e">Google Drive</a><br>
-      2. Right-click the file → <strong>Share</strong> → set to <strong>"Anyone with the link"</strong><br>
-      3. Click <strong>"Copy link"</strong> and paste it below — we'll handle the rest
-    </p>
-    <div class="field"><label>Image Link (Google Drive share link or direct URL)</label><input id="hero_image" type="text" placeholder="https://drive.google.com/file/d/..."></div>
+    <p style="font-size:13px;color:#888;margin-bottom:16px;line-height:1.6">Upload a photo from your computer — it will appear on all pages of your site.</p>
+    <div class="field">
+      <label>Upload Photo</label>
+      <input type="file" id="hero_upload" accept="image/*" style="padding:8px 0;font-size:14px;color:#333">
+      <div id="upload-preview" style="margin-top:10px;display:none">
+        <img id="preview-img" style="height:120px;border-radius:8px;object-fit:cover" />
+        <p id="upload-status" style="font-size:12px;color:#2d7d6e;margin-top:6px"></p>
+      </div>
+    </div>
+    <div class="field" style="margin-top:8px">
+      <label style="color:#aaa;font-size:11px">Or paste an image URL directly</label>
+      <input id="hero_image" type="text" placeholder="https://..." style="margin-top:4px">
+    </div>
   </div>
 
   <div class="card">
@@ -219,6 +225,68 @@ function showToast(msg) {
   t.style.display = 'block';
   setTimeout(() => t.style.display = 'none', 4000);
 }
+
+// Image upload handler
+document.getElementById('hero_upload').addEventListener('change', async function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const preview = document.getElementById('upload-preview');
+  const previewImg = document.getElementById('preview-img');
+  const status = document.getElementById('upload-status');
+  
+  // Show preview
+  previewImg.src = URL.createObjectURL(file);
+  preview.style.display = 'block';
+  status.textContent = 'Uploading...';
+  status.style.color = '#888';
+  
+  try {
+    // Convert to base64
+    const base64 = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result.split(',')[1]);
+      reader.readAsDataURL(file);
+    });
+    
+    const ext = file.name.split('.').pop().toLowerCase();
+    const filename = `hero.${ext}`;
+    const path = `src/images/${filename}`;
+    
+    // Check if file exists to get SHA
+    let sha = '';
+    const check = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+      headers: { Authorization: `token ${token}` }
+    });
+    if (check.ok) {
+      const existing = await check.json();
+      sha = existing.sha;
+    }
+    
+    // Upload to GitHub
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: 'Update hero image via admin panel',
+        content: base64,
+        ...(sha && { sha })
+      })
+    });
+    
+    if (res.ok) {
+      document.getElementById('hero_image').value = `/images/${filename}`;
+      status.textContent = '✅ Uploaded! Hit Save Changes to apply.';
+      status.style.color = '#2d7d6e';
+    } else {
+      status.textContent = '❌ Upload failed. Try again.';
+      status.style.color = 'red';
+    }
+  } catch(err) {
+    status.textContent = '❌ Error: ' + err.message;
+    status.style.color = 'red';
+  }
+});
 
 if (token) init();
 </script>
