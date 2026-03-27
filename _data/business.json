@@ -24,5 +24,6 @@
   "booking_url": "https://app.trycents.com/new-order/YjUw/home",
   "commercial_phone": "(917) 825-9176",
   "commercial_phone_raw": "9178259176",
-  "hero_image": "/images/hero.jpg"
+  "hero_image": "/images/hero.jpg",
+  "same_hero_image": true
 }

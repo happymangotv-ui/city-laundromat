@@ -89,9 +89,21 @@
 
   <div class="card">
     <h2>Hero Image</h2>
-    <p style="font-size:13px;color:#888;margin-bottom:16px;line-height:1.6">Upload a photo from your computer — it will appear on all pages of your site.</p>
+
+    <!-- Current image preview -->
+    <div id="current-preview" style="margin-bottom:20px;display:none">
+      <label style="display:block;font-size:12px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Current Image</label>
+      <img id="current-img" style="height:160px;width:100%;object-fit:cover;border-radius:10px;border:1px solid #eee" />
+    </div>
+
+    <!-- Same image toggle -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:14px;background:#f9f9f9;border-radius:8px;border:1px solid #eee">
+      <input type="checkbox" id="same_image" style="width:16px;height:16px;cursor:pointer" checked>
+      <label for="same_image" style="font-size:14px;color:#333;cursor:pointer;font-weight:500">Use the same hero image on all pages</label>
+    </div>
+
     <div class="field">
-      <label>Upload Photo</label>
+      <label>Upload New Photo</label>
       <input type="file" id="hero_upload" accept="image/*" style="padding:8px 0;font-size:14px;color:#333">
       <div id="upload-preview" style="margin-top:10px;display:none">
         <img id="preview-img" style="height:120px;border-radius:8px;object-fit:cover" />
@@ -172,6 +184,15 @@ async function init() {
     document.getElementById('price_self_serve').value = data.prices?.self_serve || '';
     document.getElementById('booking_url').value = data.booking_url || '';
     document.getElementById('hero_image').value = data.hero_image || '';
+    // Show current image preview
+    if (data.hero_image) {
+      const img = document.getElementById('current-img');
+      img.src = data.hero_image;
+      img.onerror = () => { document.getElementById('current-preview').style.display = 'none'; };
+      img.onload = () => { document.getElementById('current-preview').style.display = 'block'; };
+      img.src = data.hero_image; // trigger load
+    }
+    document.getElementById('same_image').checked = data.same_hero_image !== false;
     document.getElementById('commercial_phone').value = data.commercial_phone || '';
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('editor-screen').style.display = 'block';
@@ -204,6 +225,7 @@ async function save() {
       heroImg = `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1200`;
     }
     current.hero_image = heroImg;
+    current.same_hero_image = document.getElementById('same_image').checked;
     current.commercial_phone = document.getElementById('commercial_phone').value;
     current.commercial_phone_raw = document.getElementById('commercial_phone').value.replace(/\D/g,'');
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
@@ -275,7 +297,10 @@ document.getElementById('hero_upload').addEventListener('change', async function
     });
     
     if (res.ok) {
-      document.getElementById('hero_image').value = `/images/${filename}`;
+      const imgPath = `/images/${filename}`;
+      document.getElementById('hero_image').value = imgPath;
+      document.getElementById('current-img').src = previewImg.src;
+      document.getElementById('current-preview').style.display = 'block';
       status.textContent = '✅ Uploaded! Hit Save Changes to apply.';
       status.style.color = '#2d7d6e';
     } else {
