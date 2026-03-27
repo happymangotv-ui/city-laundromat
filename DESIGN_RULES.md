@@ -60,7 +60,7 @@
 - **Phone:** `{{ business.phone }}` — NEVER hardcode
 - **Address:** `{{ business.full_address }}` — NEVER hardcode
 - **Hero image:** `{{ business.hero_image }}` — NEVER hardcode. Same image shown on all pages.
-- **Hero image styling:** `border-radius: 28px`, `outline: 3px solid rgba(255,255,255,0.9)`, `outline-offset: 7px`, `height: 480px`, `object-fit: cover`. Consistent on every page, never override per-page.
+- **Hero image styling:** `border-radius: 28px`, `outline: 3px solid rgba(255,255,255,0.9)`, `outline-offset: 7px`, `height: 480px` (locked), `width: auto` (adjusts to image), `object-fit: none` (never crop/squish). Consistent on every page, never override per-page.
 - Rule: if it's editable in the /admin panel, it must use a template variable everywhere on the site
 - **Wash & Fold page:** Hidden from nav (page exists but not linked)
 - **No mention of clothes on hangers**
