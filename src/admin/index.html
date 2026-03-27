@@ -88,6 +88,11 @@
   </div>
 
   <div class="card">
+    <h2>Hero Image</h2>
+    <div class="field"><label>Image URL (appears on all page headers)</label><input id="hero_image" type="text" placeholder="https://images.unsplash.com/..."></div>
+  </div>
+
+  <div class="card">
     <h2>Commercial</h2>
     <div class="field"><label>Commercial Phone</label><input id="commercial_phone" type="text" placeholder="(917) 825-9176"></div>
   </div>
@@ -154,6 +159,7 @@ async function init() {
     document.getElementById('price_rush').value = data.prices?.rush || '';
     document.getElementById('price_self_serve').value = data.prices?.self_serve || '';
     document.getElementById('booking_url').value = data.booking_url || '';
+    document.getElementById('hero_image').value = data.hero_image || '';
     document.getElementById('commercial_phone').value = data.commercial_phone || '';
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('editor-screen').style.display = 'block';
@@ -179,6 +185,7 @@ async function save() {
     current.prices.rush = document.getElementById('price_rush').value;
     current.prices.self_serve = document.getElementById('price_self_serve').value;
     current.booking_url = document.getElementById('booking_url').value;
+    current.hero_image = document.getElementById('hero_image').value;
     current.commercial_phone = document.getElementById('commercial_phone').value;
     current.commercial_phone_raw = document.getElementById('commercial_phone').value.replace(/\D/g,'');
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
