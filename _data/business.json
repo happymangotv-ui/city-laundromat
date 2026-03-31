@@ -26,7 +26,7 @@
   "commercial_phone_raw": "9178259176",
   "hero_image": "/images/hero.jpg",
   "same_hero_image": true,
-  "card_blur": 4,
+  "card_blur": 2,
   "card_overlay": 0.55,
   "card_transition": 0.4
 }
