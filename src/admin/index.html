@@ -117,6 +117,41 @@
   </div>
 
   <div class="card">
+    <h2>Service Card Style</h2>
+
+    <!-- Live preview card -->
+    <div style="margin-bottom:24px">
+      <label style="display:block;font-size:12px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Live Preview</label>
+      <div id="card-preview" style="position:relative;border-radius:14px;overflow:hidden;height:160px;background:url('/images/dropoff.jpg') center/cover no-repeat;cursor:pointer" onmouseenter="previewHover(true)" onmouseleave="previewHover(false)">
+        <div id="card-overlay-el" style="position:absolute;inset:0;border-radius:14px;transition:background var(--prev-speed,0.4s) ease"></div>
+        <div id="card-blur-el" style="position:absolute;inset:0;border-radius:14px;transition:backdrop-filter var(--prev-speed,0.4s) ease,-webkit-backdrop-filter var(--prev-speed,0.4s) ease"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;z-index:1;transition:transform var(--prev-speed,0.4s) ease" id="card-content-el">
+          <div style="font-size:1.1rem;font-weight:700;color:#fff">Drop-Off Service</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.85);margin-top:4px">Hover to preview the effect</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Image Blur (default) — <span id="blur-val">4</span>px</label>
+      <input type="range" id="card_blur" min="0" max="20" step="0.5" value="4" oninput="updatePreview()" style="width:100%;margin-top:6px;accent-color:#2d7d6e">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#aaa;margin-top:2px"><span>0 (sharp)</span><span>20 (very blurry)</span></div>
+    </div>
+
+    <div class="field">
+      <label>Dark Overlay Strength — <span id="overlay-val">55</span>%</label>
+      <input type="range" id="card_overlay" min="0" max="90" step="1" value="55" oninput="updatePreview()" style="width:100%;margin-top:6px;accent-color:#2d7d6e">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#aaa;margin-top:2px"><span>0% (no overlay)</span><span>90% (very dark)</span></div>
+    </div>
+
+    <div class="field">
+      <label>Hover Animation Speed — <span id="speed-val">0.4</span>s</label>
+      <input type="range" id="card_transition" min="0.1" max="1.2" step="0.05" value="0.4" oninput="updatePreview()" style="width:100%;margin-top:6px;accent-color:#2d7d6e">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#aaa;margin-top:2px"><span>0.1s (snappy)</span><span>1.2s (slow)</span></div>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>Commercial</h2>
     <div class="field"><label>Commercial Phone</label><input id="commercial_phone" type="text" placeholder="(917) 825-9176"></div>
   </div>
@@ -203,6 +238,11 @@ async function init() {
     }
     document.getElementById('same_image').checked = data.same_hero_image !== false;
     document.getElementById('commercial_phone').value = data.commercial_phone || '';
+    // Card style settings
+    if (data.card_blur !== undefined) { document.getElementById('card_blur').value = data.card_blur; }
+    if (data.card_overlay !== undefined) { document.getElementById('card_overlay').value = Math.round(data.card_overlay * 100); }
+    if (data.card_transition !== undefined) { document.getElementById('card_transition').value = data.card_transition; }
+    updatePreview();
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('editor-screen').style.display = 'block';
     document.getElementById('save-btn').style.display = 'block';
@@ -239,6 +279,9 @@ async function save() {
     current.same_hero_image = document.getElementById('same_image').checked;
     current.commercial_phone = document.getElementById('commercial_phone').value;
     current.commercial_phone_raw = document.getElementById('commercial_phone').value.replace(/\D/g,'');
+    current.card_blur = parseFloat(document.getElementById('card_blur').value);
+    current.card_overlay = parseFloat((document.getElementById('card_overlay').value / 100).toFixed(2));
+    current.card_transition = parseFloat(document.getElementById('card_transition').value);
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
     const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, {
       method: 'PUT',
@@ -323,6 +366,47 @@ document.getElementById('hero_upload').addEventListener('change', async function
     status.style.color = 'red';
   }
 });
+
+function updatePreview() {
+  const blur = parseFloat(document.getElementById('card_blur').value);
+  const overlay = parseFloat(document.getElementById('card_overlay').value) / 100;
+  const speed = parseFloat(document.getElementById('card_transition').value);
+  document.getElementById('blur-val').textContent = blur;
+  document.getElementById('overlay-val').textContent = document.getElementById('card_overlay').value;
+  document.getElementById('speed-val').textContent = speed;
+  document.documentElement.style.setProperty('--prev-speed', speed + 's');
+  // Apply to preview elements
+  const overlayEl = document.getElementById('card-overlay-el');
+  const blurEl = document.getElementById('card-blur-el');
+  overlayEl.style.background = `rgba(0,0,0,${overlay})`;
+  overlayEl.dataset.overlay = overlay;
+  blurEl.style.backdropFilter = `blur(${blur}px)`;
+  blurEl.style.webkitBackdropFilter = `blur(${blur}px)`;
+  blurEl.dataset.blur = blur;
+}
+
+function previewHover(on) {
+  const overlayEl = document.getElementById('card-overlay-el');
+  const blurEl = document.getElementById('card-blur-el');
+  const contentEl = document.getElementById('card-content-el');
+  const speed = parseFloat(document.getElementById('card_transition').value);
+  overlayEl.style.transition = `background ${speed}s ease`;
+  blurEl.style.transition = `backdrop-filter ${speed}s ease, -webkit-backdrop-filter ${speed}s ease`;
+  contentEl.style.transition = `transform ${speed}s ease`;
+  if (on) {
+    overlayEl.style.background = 'rgba(0,0,0,0.1)';
+    blurEl.style.backdropFilter = 'blur(0px)';
+    blurEl.style.webkitBackdropFilter = 'blur(0px)';
+    contentEl.style.transform = 'scale(1.03)';
+  } else {
+    const overlay = parseFloat(document.getElementById('card_overlay').value) / 100;
+    const blur = parseFloat(document.getElementById('card_blur').value);
+    overlayEl.style.background = `rgba(0,0,0,${overlay})`;
+    blurEl.style.backdropFilter = `blur(${blur}px)`;
+    blurEl.style.webkitBackdropFilter = `blur(${blur}px)`;
+    contentEl.style.transform = 'scale(1)';
+  }
+}
 
 if (token) init();
 </script>

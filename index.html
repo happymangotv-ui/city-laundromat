@@ -80,11 +80,14 @@
 
     #services{background:var(--gray-light)}
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
-    .service-card{position:relative;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);transition:transform 0.25s,box-shadow 0.25s;cursor:pointer;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;background-repeat:no-repeat}
-    .service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.68) 0%,rgba(0,0,0,0.25) 60%,rgba(0,0,0,0.1) 100%);border-radius:20px;z-index:0}
-    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .service-card{position:relative;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);cursor:pointer;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1);transition:transform var(--card-speed,0.4s) ease,box-shadow var(--card-speed,0.4s) ease}
+    .service-card::before{content:'';position:absolute;inset:0;border-radius:20px;z-index:0;background:rgba(0,0,0,var(--card-overlay,0.55));transition:background var(--card-speed,0.4s) ease}
+    .service-card::after{content:'';position:absolute;inset:0;border-radius:20px;z-index:0;backdrop-filter:blur(var(--card-blur,4px));-webkit-backdrop-filter:blur(var(--card-blur,4px));transition:backdrop-filter var(--card-speed,0.4s) ease,-webkit-backdrop-filter var(--card-speed,0.4s) ease}
+    .service-card:hover{transform:scale(1.05);box-shadow:var(--shadow-lg)}
+    .service-card:hover::before{background:rgba(0,0,0,0.1)}
+    .service-card:hover::after{backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px)}
     .service-card>*{position:relative;z-index:1}
-    .service-icon{width:48px;height:48px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px;backdrop-filter:blur(4px)}
+    .service-icon{width:48px;height:48px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px}
     .service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;color:#fff}
     .service-card p{font-size:0.875rem;color:rgba(255,255,255,0.85);line-height:1.65}
 
@@ -270,6 +273,14 @@
 </footer>
 
 <script>
+  // Load card style settings from business.json
+  fetch('/_data/business.json').then(r=>r.json()).then(d=>{
+    const r = document.documentElement.style;
+    if(d.card_blur !== undefined) r.setProperty('--card-blur', d.card_blur+'px');
+    if(d.card_overlay !== undefined) r.setProperty('--card-overlay', d.card_overlay);
+    if(d.card_transition !== undefined) r.setProperty('--card-speed', d.card_transition+'s');
+  }).catch(()=>{});
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80) });
   },{threshold:0.12});
