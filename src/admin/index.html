@@ -152,25 +152,36 @@ document.getElementById('login-btn').addEventListener('click', function(e) {
     scope: 'repo',
     state
   });
-  window.open(`https://github.com/login/oauth/authorize?${params}`, 'github-oauth', 'width=600,height=700,left=200,top=100');
+  window.location.href = `https://github.com/login/oauth/authorize?${params}`;
 });
 
-window.addEventListener('message', function(e) {
-  if (e.data && e.data.type === 'github-token') {
-    token = e.data.token;
-    localStorage.setItem('gh_token', token);
-    init();
-  }
-});
+
 
 async function init() {
   if (!token) return;
+
+  // Show loading state on login screen while we verify
+  const loginCard = document.querySelector('.login-card p');
+  if (loginCard) loginCard.textContent = 'Signing in...';
+
   try {
     const userRes = await fetch('https://api.github.com/user', { headers: { Authorization: `token ${token}` } });
-    if (!userRes.ok) { logout(); return; }
+    if (!userRes.ok) {
+      const err = await userRes.json().catch(() => ({}));
+      if (loginCard) loginCard.textContent = 'Auth error: ' + (err.message || userRes.status) + ' — try signing in again.';
+      localStorage.removeItem('gh_token');
+      token = null;
+      return;
+    }
     const user = await userRes.json();
     document.getElementById('user-name').textContent = user.login;
+
     const fileRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, { headers: { Authorization: `token ${token}` } });
+    if (!fileRes.ok) {
+      const err = await fileRes.json().catch(() => ({}));
+      if (loginCard) loginCard.textContent = 'Could not load site data: ' + (err.message || fileRes.status);
+      return;
+    }
     const fileData = await fileRes.json();
     fileSha = fileData.sha;
     const data = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
@@ -184,20 +195,20 @@ async function init() {
     document.getElementById('price_self_serve').value = data.prices?.self_serve || '';
     document.getElementById('booking_url').value = data.booking_url || '';
     document.getElementById('hero_image').value = data.hero_image || '';
-    // Show current image preview
     if (data.hero_image) {
       const img = document.getElementById('current-img');
       img.src = data.hero_image;
       img.onerror = () => { document.getElementById('current-preview').style.display = 'none'; };
       img.onload = () => { document.getElementById('current-preview').style.display = 'block'; };
-      img.src = data.hero_image; // trigger load
     }
     document.getElementById('same_image').checked = data.same_hero_image !== false;
     document.getElementById('commercial_phone').value = data.commercial_phone || '';
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('editor-screen').style.display = 'block';
     document.getElementById('save-btn').style.display = 'block';
-  } catch(err) { logout(); }
+  } catch(err) {
+    if (loginCard) loginCard.textContent = 'Error: ' + err.message;
+  }
 }
 
 async function save() {
