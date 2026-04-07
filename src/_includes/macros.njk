@@ -1,0 +1,164 @@
+{#
+  macros.njk — Shared reusable components for City Laundromat
+  Import in any page with: {% from "macros.njk" import serviceGrid, ctaSection, heroSection, stepsSection, sectionHeader %}
+#}
+
+{# ─────────────────────────────────────────────
+   SERVICE GRID — 4-card icon grid used on index,
+   bronx, east-village, manhattan, west-village
+   Usage: {{ serviceGrid() }}
+   ───────────────────────────────────────────── #}
+{% macro serviceGrid(linked=true) %}
+<div class="services-grid">
+  {% if linked %}
+  <a href="/wash-and-fold.html" style="text-decoration:none;color:inherit">
+  {% endif %}
+  <div class="service-card fade-up">
+    <div class="service-icon">📥</div>
+    <h3>Drop-Off Service</h3>
+    <p>Leave your laundry with us and come back to fresh, neatly folded clothes. We handle everything while you go about your day.</p>
+  </div>
+  {% if linked %}</a>{% endif %}
+
+  {% if linked %}
+  <a href="/pickup-delivery.html" style="text-decoration:none;color:inherit">
+  {% endif %}
+  <div class="service-card fade-up">
+    <div class="service-icon">🚗</div>
+    <h3>Pickup &amp; Delivery</h3>
+    <p>We come to you. Schedule a pickup, we wash it, and deliver it back to your door — clean and ready to wear.</p>
+  </div>
+  {% if linked %}</a>{% endif %}
+
+  {% if linked %}
+  <a href="/wash-and-fold.html" style="text-decoration:none;color:inherit">
+  {% endif %}
+  <div class="service-card fade-up">
+    <div class="service-icon">👕</div>
+    <h3>Wash &amp; Fold</h3>
+    <p>Clothes sorted, washed with care, dried perfectly, and folded the way you like. Priced by the pound.</p>
+  </div>
+  {% if linked %}</a>{% endif %}
+
+  {% if linked %}
+  <a href="/self-serve.html" style="text-decoration:none;color:inherit">
+  {% endif %}
+  <div class="service-card fade-up">
+    <div class="service-icon">🔵</div>
+    <h3>Self-Serve</h3>
+    <p>Modern high-efficiency washers and dryers available 7 days a week. Fast, affordable, and always clean.</p>
+  </div>
+  {% if linked %}</a>{% endif %}
+</div>
+{% endmacro %}
+
+
+{# ─────────────────────────────────────────────
+   SECTION HEADER — label + title + optional sub
+   Usage: {{ sectionHeader("What We Offer", "Every Laundry Service<br>You'll Ever Need", "subtitle text", "center") }}
+   ───────────────────────────────────────────── #}
+{% macro sectionHeader(label, title, sub="", align="") %}
+<div class="section-header fade-up"{% if align %} style="text-align:{{ align }}"{% endif %}>
+  {% if label %}<div class="section-label">{{ label }}</div>{% endif %}
+  <h2 class="section-title">{{ title | safe }}</h2>
+  {% if sub %}<p class="section-sub"{% if align == "center" %} style="margin:0 auto"{% endif %}>{{ sub }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+
+{# ─────────────────────────────────────────────
+   CTA SECTION — "Ready to Get Started?" block
+   used on about, pickup-delivery, self-serve, commercial
+   Usage: {{ ctaSection() }}
+   Usage with custom text: {{ ctaSection("Let's Talk", "Reach out and we'll get you set up.", "/order.html", "Get a Quote") }}
+   ───────────────────────────────────────────── #}
+{% macro ctaSection(title="Ready to Get Started?", sub="Order pickup online or give us a call.", link="/order.html", btnText="Schedule a Pickup") %}
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">{{ title }}</h2>
+    <p class="section-sub" style="margin:0 auto 32px">{{ sub }}</p>
+    <a href="{{ link }}" class="btn-primary" style="background:var(--teal)">
+      <span>{{ btnText }}</span><span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+{% endmacro %}
+
+
+{# ─────────────────────────────────────────────
+   HOW IT WORKS — 3-step process block
+   Used on pickup-delivery, index
+   Usage: {{ stepsSection() }}
+   ───────────────────────────────────────────── #}
+{% macro stepsSection() %}
+<section style="background:var(--white)">
+  {{ sectionHeader("Simple Process", "How It Works", "Door-to-door laundry service in three easy steps.", "center") }}
+  <div class="steps">
+    <div class="step fade-up">
+      <div class="step-num">1</div>
+      <h3>Schedule Online</h3>
+      <p>Pick a time that works for you — we're available 7am to 8pm, seven days a week.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">2</div>
+      <h3>We Pick Up From Your Door</h3>
+      <p>Our driver arrives at your building. Hand off your laundry and go about your day.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">3</div>
+      <h3>Cleaned &amp; Delivered in 48 Hours</h3>
+      <p>We wash, dry, fold, and deliver everything back to your door — fresh and ready to wear within 48 hours.</p>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+
+{# ─────────────────────────────────────────────
+   HERO SECTION — full two-column hero with image
+   Used on index, pickup-delivery, self-serve, about, commercial
+   Usage: {{ heroSection(badge="✦ Label", h1="Title <em>Emphasis</em>", sub="Subtitle", btnText="CTA", btnLink="/order.html", image=business.hero_image) }}
+   ───────────────────────────────────────────── #}
+{% macro heroSection(badge, h1, sub, btnText="Schedule a Pickup", btnLink="/order.html", secondBtn="", secondBtnLink="", image="", priceLine="") %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    {% if badge %}<div class="hero-badge">{{ badge }}</div>{% endif %}
+    <h1>{{ h1 | safe }}</h1>
+    {% if sub %}<p>{{ sub }}</p>{% endif %}
+    <div class="hero-buttons">
+      <a href="{{ btnLink }}" class="btn-primary">
+        <span>{{ btnText }}</span><span class="arrow" style="margin-left:6px">→</span>
+      </a>
+      {% if secondBtn %}
+      <a href="{{ secondBtnLink }}" class="btn-secondary">{{ secondBtn }}</a>
+      {% endif %}
+    </div>
+    {% if priceLine %}
+    <div class="hero-price-tag">Starting at <strong>{{ priceLine }}</strong> — Wash &amp; Fold</div>
+    {% endif %}
+  </div>
+  {% if image %}
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="{{ image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endmacro %}
+
+
+{# ─────────────────────────────────────────────
+   INFO ITEM — icon + label + value row
+   Used in contact sections
+   Usage: {{ infoItem("📍", "Address", business.full_address) }}
+   ───────────────────────────────────────────── #}
+{% macro infoItem(icon, label, value) %}
+<div class="info-item">
+  <div class="info-icon">{{ icon }}</div>
+  <div class="info-text">
+    <div class="label">{{ label }}</div>
+    <div class="val">{{ value }}</div>
+  </div>
+</div>
+{% endmacro %}
