@@ -70,9 +70,9 @@
    CTA SECTION — "Ready to Get Started?" block
    used on about, pickup-delivery, self-serve, commercial
    Usage: {{ ctaSection() }}
-   Usage with custom text: {{ ctaSection("Let's Talk", "Reach out and we'll get you set up.", "/order.html", "Get a Quote") }}
+   Usage with custom text: {{ ctaSection("Let's Talk", "Reach out and we'll get you set up.", "https://app.trycents.com/new-order/YjUw/home", "Get a Quote") }}
    ───────────────────────────────────────────── #}
-{% macro ctaSection(title="Ready to Get Started?", sub="Order pickup online or give us a call.", link="/order.html", btnText="Schedule a Pickup") %}
+{% macro ctaSection(title="Ready to Get Started?", sub="Order pickup online or give us a call.", link="https://app.trycents.com/new-order/YjUw/home", btnText="Schedule a Pickup") %}
 <section style="background:var(--gray-light);text-align:center">
   <div class="fade-up">
     <h2 class="section-title">{{ title }}</h2>
@@ -117,9 +117,9 @@
 {# ─────────────────────────────────────────────
    HERO SECTION — full two-column hero with image
    Used on index, pickup-delivery, self-serve, about, commercial
-   Usage: {{ heroSection(badge="✦ Label", h1="Title <em>Emphasis</em>", sub="Subtitle", btnText="CTA", btnLink="/order.html", image=business.hero_image) }}
+   Usage: {{ heroSection(badge="✦ Label", h1="Title <em>Emphasis</em>", sub="Subtitle", btnText="CTA", btnLink="https://app.trycents.com/new-order/YjUw/home", image=business.hero_image) }}
    ───────────────────────────────────────────── #}
-{% macro heroSection(badge, h1, sub, btnText="Schedule a Pickup", btnLink="/order.html", secondBtn="", secondBtnLink="", image="", priceLine="") %}
+{% macro heroSection(badge, h1, sub, btnText="Schedule a Pickup", btnLink="https://app.trycents.com/new-order/YjUw/home", secondBtn="", secondBtnLink="", image="", priceLine="") %}
 <section class="hero" style="min-height:60vh">
   <div class="hero-content fade-up">
     {% if badge %}<div class="hero-badge">{{ badge }}</div>{% endif %}
