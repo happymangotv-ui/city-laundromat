@@ -1,16 +1,29 @@
 // Shared nav component — edit here to update nav on ALL pages
+// Injected as first child of <body> on DOMContentLoaded
 (function() {
-  var nav = `<nav>
-  <a href="/index.html" class="nav-logo" style="text-decoration:none">The City <span>Laundry</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/pickup-delivery.html">Pickup &amp; Delivery</a></li>
-    <li><a href="/self-serve.html">Self-Serve</a></li>
-    <li><a href="/commercial.html">Commercial</a></li>
-    <li><a href="/about.html">About</a></li>
-  </ul>
-  <a href="/order.html" class="nav-cta"><span>Schedule a Pickup</span><span class="arrow" style="margin-left:6px">→</span></a>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
-</nav>`;
-  document.write(nav);
+  function injectNav() {
+    var existing = document.querySelector('nav');
+    if (existing) existing.remove(); // remove any hardcoded nav
+
+    var nav = document.createElement('nav');
+    nav.innerHTML = `
+      <a href="/index.html" class="nav-logo" style="text-decoration:none">The City <span>Laundry</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pickup-delivery.html">Pickup &amp; Delivery</a></li>
+        <li><a href="/self-serve.html">Self-Serve</a></li>
+        <li><a href="/commercial.html">Commercial</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      <a href="/order.html" class="nav-cta"><span>Schedule a Pickup</span><span class="arrow" style="margin-left:6px">→</span></a>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    `;
+    document.body.insertBefore(nav, document.body.firstChild);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectNav);
+  } else {
+    injectNav();
+  }
 })();
