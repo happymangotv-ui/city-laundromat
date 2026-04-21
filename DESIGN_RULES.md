@@ -1,4 +1,4 @@
-# City Laundromat — Design Rules
+# The City Laundry — Design Rules
 
 **Reference page:** `pickup-delivery.html` — this is the gold standard. All pages must match its look and feel.
 
@@ -42,6 +42,7 @@
 - **Icon alignment:** ALL service cards must have `style="text-align:center"` and `.service-icon` must have `style="margin:0 auto 20px"`. No exceptions. Left-aligned icons are always wrong.
 - **⚠️ After any revert or rollback:** Immediately audit pickup-delivery.html service area cards (UES/UWS/Midtown) and pricing cards to confirm they still have `text-align:center` and `margin:0 auto 20px`. Reverts frequently lose these fixes.
 - **Odd number of cards (3, 5, etc.):** Always force them onto one row using `grid-template-columns: repeat(N, 1fr)`. Never let an odd card sit alone on a second row — it looks unintentional.
+- **Mobile (≤900px) — all card grids stack vertically:** `.services-grid` becomes a single column on mobile (max-width 440px, centered). This rule lives in `src/_includes/base.njk` and should not be overridden per-page. Applies to every card grid on every page (Service Area, Pricing, Why Choose Us, etc.).
 - **Buttons (primary):** Teal gradient, border-radius 999px, font-weight 700
 - **Buttons (secondary):** White background, border, border-radius 999px
 - **Hero badge:** Pill shape, white bg, teal text, uppercase, small font
@@ -67,7 +68,6 @@
 - **Hero image:** `{{ business.hero_image }}` — NEVER hardcode. Same image shown on all pages.
 - **Hero image styling:** `border-radius: 28px`, `outline: 3px solid rgba(255,255,255,0.9)`, `outline-offset: 7px`, `height: 480px` (locked), `width: auto` (adjusts to image), `object-fit: none` (never crop/squish). Consistent on every page, never override per-page.
 - Rule: if it's editable in the /admin panel, it must use a template variable everywhere on the site
-- **Wash & Fold page:** Hidden from nav (page exists but not linked)
 - **No mention of clothes on hangers**
 - **No "no minimum order"**
 
