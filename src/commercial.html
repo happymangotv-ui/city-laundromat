@@ -1,0 +1,28 @@
+{% extends "base.njk" %}
+{% set title = "Commercial Laundry – The City Laundry" %}
+{% set description = "Commercial laundry service for NYC businesses." %}
+
+{% block content %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ Commercial Services</div>
+    <h1>Commercial Laundry for <em>NYC Businesses</em></h1>
+    <p>We offer commercial laundry services for businesses. Get in touch to discuss your needs and get a custom quote.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.commercial_phone_raw }}" class="btn-primary" style="background:var(--teal)"><span>Call {{ business.commercial_phone }}</span></a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">Interested in Commercial Service?</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Call us at {{ business.commercial_phone }} or send us a message and we'll get back to you.</p>
+    <a href="tel:{{ business.commercial_phone_raw }}" class="btn-primary" style="background:var(--teal)"><span>Call {{ business.commercial_phone }}</span></a>
+</section>
+{% endblock %}

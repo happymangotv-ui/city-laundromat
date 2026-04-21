@@ -1,0 +1,29 @@
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">The City <span>Laundromat</span></div>
+      <p>{{ business.tagline }} Clean clothes, happy customers — every single time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/pickup-delivery.html">Pickup &amp; Delivery</a></li>
+        <li><a href="/self-serve.html">Self-Serve</a></li>
+        <li><a href="/commercial.html">Commercial</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><span>📍 {{ business.full_address }}</span></li>
+        <li><span>📞 <a href="tel:{{ business.phone_raw }}" style="color:rgba(255,255,255,0.6);text-decoration:none">{{ business.phone }}</a></span></li>
+        <li><span>✉️ <a href="mailto:{{ business.email }}" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s">{{ business.email }}</a></span></li>
+        <li><span>🕐 {{ business.hours }}</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 {{ business.name }}. All rights reserved.</span>
+    <span>{{ business.full_address }}</span>
+  </div>
+</footer>

@@ -1,0 +1,114 @@
+{% extends "base.njk" %}
+{% set title = "Free Pickup & Delivery – The City Laundry" %}
+{% set description = "Free laundry pickup and delivery serving Upper East Side, Upper West Side, and Midtown." %}
+
+{% block content %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ Pickup &amp; Delivery</div>
+    <h1>Free Pickup &amp; Delivery — <em>Upper East Side, Upper West Side &amp; Midtown</em></h1>
+    <p>Schedule online. We handle the rest. Your laundry picked up, cleaned, and delivered back to your door.</p>
+    <div class="hero-buttons">
+      <a href="https://app.trycents.com/new-order/YjUw/home" class="btn-primary"><span>Schedule a Pickup</span><span class="arrow">→</span></a><a href="tel:{{ business.phone_raw }}" class="btn-secondary">Call Us ↗</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub" style="margin:0 auto">Door-to-door laundry service in three easy steps.</p>
+  </div>
+  <div class="steps">
+    <div class="step fade-up"><div class="step-num">1</div><h3>Schedule Online</h3><p>Pick a time that works for you — we're available 7am to 8pm, seven days a week.</p></div>
+    <div class="step fade-up"><div class="step-num">2</div><h3>We Pick Up From Your Door</h3><p>Our driver arrives at your building. Hand off your laundry and go about your day.</p></div>
+    <div class="step fade-up"><div class="step-num">3</div><h3>Cleaned &amp; Delivered in 48 Hours</h3><p>We wash, dry, fold, and deliver everything back to your door — fresh and ready to wear within 48 hours.</p></div>
+</section>
+
+<section style="background:var(--gray-light)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Coverage</div>
+    <h2 class="section-title">Service Area</h2>
+    <p class="section-sub" style="margin:0 auto">We pick up and deliver across Upper East Side, Upper West Side, and Midtown.</p>
+  </div>
+  <div class="services-grid" style="max-width:960px;margin:0 auto;grid-template-columns:repeat(3,1fr)">
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🏙️</div>
+      <h3>Upper East Side</h3>
+      <p>Full pickup and delivery coverage across the Upper East Side.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🌆</div>
+      <h3>Upper West Side</h3>
+      <p>Full pickup and delivery coverage across the Upper West Side.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🏢</div>
+      <h3>Midtown</h3>
+      <p>Full pickup and delivery coverage throughout Midtown Manhattan.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Pickup &amp; Delivery Pricing</div>
+    <h2 class="section-title">Simple, Fair Pricing</h2>
+    <p class="section-sub" style="margin:0 auto">No hidden fees.</p>
+  </div>
+  <div class="services-grid" style="max-width:960px;margin:0 auto">
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🧺</div>
+      <h3>Wash &amp; Fold</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">${{ business.prices.wash_fold }}<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
+      <p>Washed, dried, and neatly folded. Free pickup &amp; delivery included.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">⚡</div>
+      <h3>Rush Service</h3>
+      <div style="font-size:2rem;font-weight:800;color:var(--teal);margin:12px 0">${{ business.prices.rush }}<span style="font-size:1rem;color:var(--gray);font-weight:500">/lb</span></div>
+      <p>Rush service available. Call to schedule.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🛏️</div>
+      <h3>Comforters &amp; Bedding</h3>
+      <p>We wash comforters, duvets, sheets, and all large items — just include them in your order.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">The Difference</div>
+    <h2 class="section-title">Why Choose Us</h2>
+  </div>
+  <div class="services-grid" style="max-width:960px;margin:0 auto;grid-template-columns:repeat(2,1fr)">
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🧴</div>
+      <h3>Hypoallergenic Options</h3>
+      <p>We use Clear detergent. Fragrance-free and hypoallergenic options available on request.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🛏️</div>
+      <h3>Comforters &amp; Bedding</h3>
+      <p>We wash comforters, duvets, sheets, and all large items — just include them in your order.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">Ready to Get Started?</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Order pickup online or give us a call.</p>
+    <a href="https://app.trycents.com/new-order/YjUw/home" class="btn-primary" style="background:var(--teal)"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
+  </div>
+</section>
+
+
+{% endblock %}

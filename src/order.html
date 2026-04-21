@@ -1,0 +1,26 @@
+{% extends "base.njk" %}
+{% set title = "Schedule a Pickup – The City Laundry" %}
+{% set description = "Schedule laundry pickup online. We serve Upper East Side, Upper West Side, and Midtown Manhattan." %}
+
+{% block content %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ Book Online</div>
+    <h1>Schedule Your <em>Pickup</em></h1>
+    <p>Enter your address below and we'll handle the rest. 48-hour turnaround, delivered back to your door.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.phone_raw }}" class="btn-secondary">Call {{ business.phone }} ↗</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0;background:#f3f7f9;">
+  <iframe
+    src="{{ business.booking_url }}"
+    style="width:100%;height:900px;border:none;display:block;"
+    allow="payment"
+    loading="eager"
+    title="Schedule Pickup – The City Laundry"
+  ></iframe>
+</section>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.njk" %}
+{% set title = "Self-Serve Laundry – The City Laundry" %}
+{% set description = "Self-serve laundry at 391 Brook Ave, Bronx." %}
+
+{% block content %}
+<section class="hero" style="min-height:60vh">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">✦ Self-Serve Laundry</div>
+    <h1>Self-Serve Laundry <em>in the Bronx</em></h1>
+    <p>Open 7 days a week. Modern machines, clean facility, affordable prices.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.phone_raw }}" class="btn-primary"><span>Call {{ business.phone }}</span></a><a href="https://app.trycents.com/new-order/YjUw/home" class="btn-secondary">Schedule Pickup</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Equipment</div>
+    <h2 class="section-title">Our Machines</h2>
+    <p class="section-sub" style="margin:0 auto">High-efficiency, commercial-grade equipment for every load size.</p>
+  </div>
+  <div class="services-grid" style="max-width:720px;margin:0 auto">
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🔵</div>
+      <h3>High-Efficiency Washers</h3>
+      <div style="font-size:1.4rem;font-weight:800;color:var(--teal);margin:12px 0">Multiple sizes available</div>
+      <p>Multiple sizes to fit any load. Starting at ${{ business.prices.self_serve }}/wash.</p>
+    </div>
+    <div class="service-card fade-up" style="text-align:center">
+      <div class="service-icon" style="margin:0 auto 20px">🔴</div>
+      <h3>High-Speed Dryers</h3>
+      <div style="font-size:1.4rem;font-weight:800;color:var(--teal);margin:12px 0">Fast &amp; efficient</div>
+      <p>Commercial dryers that get your clothes done quickly and evenly.</p>
+    </div>
+</section>
+
+
+
+<section id="find-us" style="background:var(--white)">
+  <div class="section-header fade-up" style="text-align:center">
+    <div class="section-label">Location</div>
+    <h2 class="section-title">Find Us</h2>
+  </div>
+  <div class="services-grid" style="max-width:720px;margin:0 auto">
+    <div class="service-card fade-up">
+      <div class="service-icon">📍</div>
+      <h3>Address</h3>
+      <p>391 Brook Avenue, Bronx, NY 10454</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">📞</div>
+      <h3>Phone</h3>
+      <p>{{ business.phone }}</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🕐</div>
+      <h3>Hours</h3>
+      <p>Monday – Sunday, 7:00 AM – 10:00 PM</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light);text-align:center">
+  <div class="fade-up">
+    <h2 class="section-title">Ready to Get Started?</h2>
+    <p class="section-sub" style="margin:0 auto 32px">Order pickup online or give us a call.</p>
+    <a href="https://app.trycents.com/new-order/YjUw/home" class="btn-primary" style="background:var(--teal)"><span>Schedule a Pickup</span><span class="arrow">→</span></a>
+  </div>
+</section>
+{% endblock %}
