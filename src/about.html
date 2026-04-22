@@ -4,7 +4,6 @@
 
 {% block content %}
 
-{# HERO with photo grid #}
 <section class="hero">
   <div class="fade-up">
     <div class="hero-badge">✦ About Us</div>
@@ -30,8 +29,7 @@
   </div>
 </section>
 
-{# OUR STORY — split #}
-<section style="background:var(--gray-light)">
+<section class="section-divider">
   <div class="split">
     <div class="split-img fade-up">
       <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=700&q=80" alt="Our facility" />
@@ -40,27 +38,26 @@
       <div class="section-label">Our Story</div>
       <h2 class="section-title">Local, Trusted, and Hands-On</h2>
       <p class="section-sub">The City Laundry started with a simple idea: give the neighborhood a laundromat that actually cares. No shortcuts on the wash. No mystery fees. Just clean clothes and good service.</p>
-      <p style="font-size:0.9rem;color:var(--gray);line-height:1.75;margin-bottom:24px">We've grown to serve customers across Manhattan and the Bronx — with walk-in service, drop-off, wash &amp; fold, and free pickup &amp; delivery for Manhattan residents.</p>
+      <p style="font-size:0.9rem;color:var(--ash);line-height:1.7;margin-bottom:24px">We've grown to serve customers across Manhattan and the Bronx — with walk-in service, drop-off, wash &amp; fold, and free pickup &amp; delivery for Manhattan residents.</p>
       <div style="display:flex;gap:32px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">7am–10pm</div>
-          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Open Daily</div>
+          <div style="font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px">7am–10pm</div>
+          <div style="font-size:0.72rem;color:var(--stone);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Open Daily</div>
         </div>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">24–48 hrs</div>
-          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Avg. Turnaround</div>
+          <div style="font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px">24–48 hrs</div>
+          <div style="font-size:0.72rem;color:var(--stone);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Avg. Turnaround</div>
         </div>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">${{ business.prices.wash_fold }}/lb</div>
-          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Wash &amp; Fold</div>
+          <div style="font-size:1.5rem;font-weight:700;color:var(--teal);letter-spacing:-0.5px">${{ business.prices.wash_fold }}/lb</div>
+          <div style="font-size:0.72rem;color:var(--stone);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Wash &amp; Fold</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{# VISIT US — info strip #}
-<section style="background:var(--white)">
+<section class="section-divider">
   <div class="section-header center fade-up">
     <div class="section-label">Visit Us</div>
     <h2 class="section-title">Come See Us in the Bronx</h2>
@@ -97,7 +94,6 @@
   </div>
 </section>
 
-{# PHOTO BANNER #}
 <div class="photo-banner">
   <div class="photo-banner-bg">
     <img src="https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?w=1400&q=80" alt="" />
