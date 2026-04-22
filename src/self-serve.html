@@ -1,0 +1,90 @@
+{% extends "base.njk" %}
+{% set title = "Self-Serve Laundry – The City Laundry" %}
+{% set description = "Self-serve laundry at " ~ business.full_address ~ ". Modern machines, open 7 days a week." %}
+
+{% block content %}
+
+{# HERO #}
+<section class="hero">
+  <div class="fade-up">
+    <div class="hero-badge">✦ Self-Serve</div>
+    <h1>Modern Machines,<br><em>Clean &amp; Fast</em></h1>
+    <p>High-efficiency washers and dryers available 7 days a week. Big loads, fast cycles, affordable prices — at {{ business.full_address }}.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.phone_raw }}" class="btn-primary">Call Ahead</a>
+      <a href="https://maps.google.com/?q={{ business.full_address | urlencode }}" class="btn-secondary">Get Directions</a>
+    </div>
+  </div>
+  <div class="hero-img-col fade-up">
+    <div class="hero-img-wrap">
+      <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+</section>
+
+{# FACILITY SPLIT #}
+<section style="background:var(--white)">
+  <div class="split reverse">
+    <div class="split-text fade-up">
+      <div class="section-label">The Facility</div>
+      <h2 class="section-title">Everything You Need,<br>Nothing You Don't</h2>
+      <p class="section-sub">Our laundromat is clean, well-lit, and stocked with everything you need for a fast, easy laundry day.</p>
+      <ul class="check-list">
+        <li>High-capacity washers — great for bulky items and large loads</li>
+        <li>Fast-dry dryers to get you in and out quickly</li>
+        <li>Clean, comfortable facility open 7 days a week</li>
+        <li>Attendant on-site to assist when needed</li>
+        <li>Change machine and laundry supplies available</li>
+      </ul>
+    </div>
+    <div class="split-img fade-up">
+      <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=700&q=80" alt="Laundromat interior" />
+    </div>
+  </div>
+</section>
+
+{# PRICING #}
+<section style="background:var(--gray-light)">
+  <div class="section-header center fade-up">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Transparent, Affordable Rates</h2>
+  </div>
+  <div class="pricing-grid" style="max-width:660px;margin:0 auto;grid-template-columns:repeat(2,1fr)">
+    <div class="pricing-card fade-up">
+      <h3>Washers</h3>
+      <div class="price-num">${{ business.prices.self_serve }}</div>
+      <div class="price-unit">/load</div>
+      <p>Standard single-load washers. High-capacity machines available for bigger loads.</p>
+    </div>
+    <div class="pricing-card fade-up">
+      <h3>Dryers</h3>
+      <div class="price-num">$0.25</div>
+      <div class="price-unit">/5 min</div>
+      <p>High-efficiency dryers. Most loads take 30–40 minutes.</p>
+    </div>
+  </div>
+</section>
+
+{# PHOTO BANNER #}
+<div class="photo-banner">
+  <div class="photo-banner-bg">
+    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1400&q=80" alt="" />
+  </div>
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-banner-content fade-up">
+    <div class="section-label">Open 7 Days</div>
+    <h2 class="section-title">Come In Anytime, 7am – 10pm</h2>
+    <p>No appointment needed. Walk in, load up, and be done in under an hour. {{ business.full_address }}.</p>
+    <a href="https://maps.google.com/?q={{ business.full_address | urlencode }}" class="btn-white">Get Directions →</a>
+  </div>
+</div>
+
+{# CTA STRIP #}
+<div class="cta-strip">
+  <div class="section-label">Prefer Full-Service?</div>
+  <h2 class="section-title">Let Us Do the Work</h2>
+  <p>Drop off your laundry or schedule a free pickup — we'll wash, dry, and fold everything for you.</p>
+  <a href="{{ business.booking_url }}" class="btn-white">Schedule a Pickup →</a>
+</div>
+
+{% endblock %}

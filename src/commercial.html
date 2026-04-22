@@ -1,0 +1,114 @@
+{% extends "base.njk" %}
+{% set title = "Commercial Laundry – The City Laundry" %}
+{% set description = "Commercial laundry service for NYC businesses — restaurants, salons, gyms, and more." %}
+
+{% block content %}
+
+{# HERO #}
+<section class="hero">
+  <div class="fade-up">
+    <div class="hero-badge">✦ Commercial</div>
+    <h1>Commercial Laundry<br><em>Built for Business</em></h1>
+    <p>Reliable, high-volume laundry services for restaurants, salons, gyms, spas, and Airbnb operators. Flexible scheduling, consistent quality.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.commercial_phone_raw }}" class="btn-primary">Call to Get a Quote</a>
+      <a href="mailto:{{ business.email }}" class="btn-secondary">Email Us</a>
+    </div>
+  </div>
+  <div class="hero-img-col fade-up">
+    <div class="hero-img-wrap">
+      <img src="{{ business.hero_image }}" alt="{{ business.name }}" />
+    </div>
+  </div>
+</section>
+
+{# INDUSTRIES — photo cards #}
+<section style="background:var(--gray-light)">
+  <div class="section-header fade-up">
+    <div class="section-label">Who We Serve</div>
+    <h2 class="section-title">Services for Every Industry</h2>
+  </div>
+  <div class="cards-grid">
+    <div class="photo-card fade-up">
+      <div class="photo-card-img">
+        <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=700&q=80" alt="Restaurants and cafes" />
+      </div>
+      <div class="photo-card-body">
+        <h3>Restaurants &amp; Cafés</h3>
+        <p>Table linens, aprons, kitchen towels — washed to health-code standards and returned on your schedule.</p>
+      </div>
+    </div>
+    <div class="photo-card fade-up">
+      <div class="photo-card-img">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=700&q=80" alt="Salons and spas" />
+      </div>
+      <div class="photo-card-body">
+        <h3>Salons &amp; Spas</h3>
+        <p>Towels, robes, and uniforms handled with care. Consistent turnaround so you never run short.</p>
+      </div>
+    </div>
+    <div class="photo-card fade-up">
+      <div class="photo-card-img">
+        <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=700&q=80" alt="Hotels and Airbnb" />
+      </div>
+      <div class="photo-card-body">
+        <h3>Hotels &amp; Airbnb</h3>
+        <p>Bed linens, duvet covers, and bath towels for short-term rentals and boutique hotels.</p>
+      </div>
+    </div>
+    <div class="photo-card fade-up">
+      <div class="photo-card-img">
+        <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=700&q=80" alt="Gyms and fitness" />
+      </div>
+      <div class="photo-card-body">
+        <h3>Gyms &amp; Fitness</h3>
+        <p>Towels and workout gear washed at scale. Reliable pickup and delivery to keep your facility running.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# WHY PARTNER — split #}
+<section style="background:var(--white)">
+  <div class="split">
+    <div class="split-img fade-up">
+      <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=700&q=80" alt="Commercial folded linens" />
+    </div>
+    <div class="split-text fade-up">
+      <div class="section-label">Why Partner With Us</div>
+      <h2 class="section-title">Reliable, Consistent, Local</h2>
+      <p class="section-sub">We've served local businesses for years. When you partner with us, you get a dedicated laundry team that understands your needs.</p>
+      <ul class="check-list">
+        <li>Flexible pickup and delivery scheduling</li>
+        <li>Custom detergent and care preferences</li>
+        <li>Volume pricing for regular accounts</li>
+        <li>Fast turnaround — keep your operation running</li>
+        <li>Direct line to our team — no apps, no bots</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{# PHOTO BANNER #}
+<div class="photo-banner">
+  <div class="photo-banner-bg">
+    <img src="https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?w=1400&q=80" alt="" />
+  </div>
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-banner-content fade-up">
+    <div class="section-label">Get a Custom Quote</div>
+    <h2 class="section-title">Let's Build a Plan for Your Business</h2>
+    <p>Call us or send an email to discuss volume pricing, scheduling, and exactly what you need.</p>
+    <a href="tel:{{ business.commercial_phone_raw }}" class="btn-white">Call {{ business.commercial_phone }} →</a>
+  </div>
+</div>
+
+{# CTA STRIP #}
+<div class="cta-strip">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-title">Ready to Partner With Us?</h2>
+  <p>Reach out by phone or email — we'll get you set up quickly.</p>
+  <a href="tel:{{ business.commercial_phone_raw }}" class="btn-white">Call Us →</a>
+</div>
+
+{% endblock %}

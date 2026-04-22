@@ -1,0 +1,114 @@
+{% extends "base.njk" %}
+{% set title = "About – The City Laundry" %}
+{% set description = "Learn about " ~ business.name ~ " — a family-run laundromat at " ~ business.full_address ~ ", serving Manhattan and the Bronx." %}
+
+{% block content %}
+
+{# HERO with photo grid #}
+<section class="hero">
+  <div class="fade-up">
+    <div class="hero-badge">✦ About Us</div>
+    <h1>A Neighborhood<br><em>Laundromat Done Right</em></h1>
+    <p>We're a family-run laundromat at {{ business.full_address }}. For years we've been keeping Manhattan and Bronx residents' clothes clean — the right way.</p>
+    <div class="hero-buttons">
+      <a href="tel:{{ business.phone_raw }}" class="btn-primary">Call Us</a>
+      <a href="https://maps.google.com/?q={{ business.full_address | urlencode }}" class="btn-secondary">Get Directions</a>
+    </div>
+  </div>
+  <div class="hero-img-col fade-up">
+    <div class="about-photos">
+      <div class="ap-main">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80" alt="Our laundromat" />
+      </div>
+      <div class="ap-side">
+        <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=500&q=80" alt="Machines" />
+      </div>
+      <div class="ap-side">
+        <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=500&q=80" alt="Folded laundry" />
+      </div>
+    </div>
+  </div>
+</section>
+
+{# OUR STORY — split #}
+<section style="background:var(--gray-light)">
+  <div class="split">
+    <div class="split-img fade-up">
+      <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=700&q=80" alt="Our facility" />
+    </div>
+    <div class="split-text fade-up">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Local, Trusted, and Hands-On</h2>
+      <p class="section-sub">The City Laundry started with a simple idea: give the neighborhood a laundromat that actually cares. No shortcuts on the wash. No mystery fees. Just clean clothes and good service.</p>
+      <p style="font-size:0.9rem;color:var(--gray);line-height:1.75;margin-bottom:24px">We've grown to serve customers across Manhattan and the Bronx — with walk-in service, drop-off, wash &amp; fold, and free pickup &amp; delivery for Manhattan residents.</p>
+      <div style="display:flex;gap:32px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">7am–10pm</div>
+          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Open Daily</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">24–48 hrs</div>
+          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Avg. Turnaround</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--teal)">${{ business.prices.wash_fold }}/lb</div>
+          <div style="font-size:0.78rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Wash &amp; Fold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# VISIT US — info strip #}
+<section style="background:var(--white)">
+  <div class="section-header center fade-up">
+    <div class="section-label">Visit Us</div>
+    <h2 class="section-title">Come See Us in the Bronx</h2>
+  </div>
+  <div class="info-strip">
+    <div class="info-block">
+      <div class="info-block-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="label">Location</div>
+      <div class="val">{{ business.full_address }}</div>
+    </div>
+    <div class="info-block">
+      <div class="info-block-icon">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </div>
+      <div class="label">Phone</div>
+      <div class="val"><a href="tel:{{ business.phone_raw }}" style="color:inherit">{{ business.phone }}</a></div>
+    </div>
+    <div class="info-block">
+      <div class="info-block-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="label">Hours</div>
+      <div class="val">{{ business.hours }}</div>
+    </div>
+    <div class="info-block">
+      <div class="info-block-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="label">Serving</div>
+      <div class="val">Manhattan</div>
+    </div>
+  </div>
+</section>
+
+{# PHOTO BANNER #}
+<div class="photo-banner">
+  <div class="photo-banner-bg">
+    <img src="https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?w=1400&q=80" alt="" />
+  </div>
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-banner-content fade-up">
+    <div class="section-label">Always Open</div>
+    <h2 class="section-title">We're Here When You Need Us</h2>
+    <p>Walk in any day of the week, drop off your laundry, or schedule a free pickup from your Manhattan home. We've got you covered.</p>
+    <a href="{{ business.booking_url }}" class="btn-white">Schedule a Pickup →</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<nav>
+  <a href="/index.html" class="nav-logo">The City <em>Laundry</em></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/pickup-delivery.html">Pickup &amp; Delivery</a></li>
+    <li><a href="/self-serve.html">Self-Serve</a></li>
+    <li><a href="/commercial.html">Commercial</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+  <a href="{{ business.booking_url }}" class="nav-cta">Schedule a Pickup →</a>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="toggleNav()">✕</button>
+  <a href="/index.html" onclick="toggleNav()">Home</a>
+  <a href="/pickup-delivery.html" onclick="toggleNav()">Pickup &amp; Delivery</a>
+  <a href="/self-serve.html" onclick="toggleNav()">Self-Serve</a>
+  <a href="/commercial.html" onclick="toggleNav()">Commercial</a>
+  <a href="/about.html" onclick="toggleNav()">About</a>
+  <a href="{{ business.booking_url }}" class="mobile-cta">Schedule a Pickup →</a>
+</div>

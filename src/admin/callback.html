@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Authenticating...</title></head>
+<body>
+<p style="font-family:sans-serif;text-align:center;margin-top:40px;color:#666">Authenticating, please wait...</p>
+<script>
+(async function() {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+
+  if (!code) {
+    document.body.innerHTML = '<p style="color:red;text-align:center;margin-top:40px">Error: no code received</p>';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/auth/callback?code=' + encodeURIComponent(code));
+    const data = await res.json();
+    const token = data.access_token;
+
+    if (token) {
+      localStorage.setItem('gh_token', token);
+      if (window.opener) {
+        window.opener.postMessage({ type: 'github-token', token: token }, '*');
+        window.close();
+      } else {
+        window.location.href = '/admin/';
+      }
+    } else {
+      document.body.innerHTML = '<p style="color:red;text-align:center;margin-top:40px">Auth failed. <a href="/admin/">Try again</a></p>';
+    }
+  } catch(e) {
+    document.body.innerHTML = '<p style="color:red;text-align:center;margin-top:40px">Error: ' + e.message + '</p>';
+  }
+})();
+</script>
+</body>
+</html>
