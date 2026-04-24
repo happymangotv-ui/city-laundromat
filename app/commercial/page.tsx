@@ -3,10 +3,10 @@ import FadeUp from '@/components/FadeUp'
 import Check from '@/components/Check'
 
 const industries = [
-  { img: IMGS.restaurant, title: 'Restaurants & Cafés',  sub: 'Table linens, towels, aprons',   desc: 'Washed to health-code standards and returned on your schedule.' },
-  { img: IMGS.hotel,      title: 'Hotels & Airbnb',      sub: 'Bed linens, duvet covers',       desc: 'Consistent turnaround for short-term rentals and boutique hotels.' },
-  { img: IMGS.salon,      title: 'Salons & Spas',        sub: 'Towels, robes, uniforms',        desc: 'Handled with care so you never run short on inventory.' },
-  { img: IMGS.gym,        title: 'Gyms & Fitness',       sub: 'Towels at scale',               desc: 'Reliable pickup and delivery to keep your facility running.' },
+  { img: IMGS.restaurant, title: 'Restaurants & Cafés',  sub: 'Table linens, towels, aprons',   desc: 'Washed to health-code standards and returned on your schedule.',   subject: 'Commercial Laundry Inquiry – Restaurants & Cafés' },
+  { img: IMGS.hotel,      title: 'Hotels & Airbnb',      sub: 'Bed linens, duvet covers',       desc: 'Consistent turnaround for short-term rentals and boutique hotels.', subject: 'Commercial Laundry Inquiry – Hotels & Airbnb' },
+  { img: IMGS.salon,      title: 'Salons & Spas',        sub: 'Towels, robes, uniforms',        desc: 'Handled with care so you never run short on inventory.',            subject: 'Commercial Laundry Inquiry – Salons & Spas' },
+  { img: IMGS.gym,        title: 'Gyms & Fitness',       sub: 'Towels at scale',                desc: 'Reliable pickup and delivery to keep your facility running.',       subject: 'Commercial Laundry Inquiry – Gyms & Fitness' },
 ]
 
 const whyUs = [
@@ -33,7 +33,7 @@ export default function CommercialPage() {
           </p>
           <div className="hero-actions">
             <a href={`tel:${PHONE}`} className="btn-primary">Call for a Quote</a>
-            <a href={`mailto:${EMAIL}`} className="btn-secondary">Email Us</a>
+            <a href={`mailto:${EMAIL}?subject=Commercial%20Laundry%20Inquiry`} className="btn-secondary">Email Us</a>
           </div>
         </FadeUp>
 
@@ -60,7 +60,7 @@ export default function CommercialPage() {
             <FadeUp key={i}>
               <a
                 className="lcard"
-                href={`mailto:${EMAIL}?subject=Commercial Inquiry - ${s.title}&body=Hi, I'm interested in commercial laundry services for my ${s.title.toLowerCase()} business. Please get in touch.`}
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent(s.subject)}`}
                 style={{ display: 'block', cursor: 'pointer' }}
               >
                 <div className="lcard-img">
