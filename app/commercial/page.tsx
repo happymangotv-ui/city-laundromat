@@ -14,7 +14,6 @@ const whyUs = [
   'Custom detergent and care preferences',
   'Volume pricing for regular accounts',
   'Fast turnaround — keeps your operation running',
-  'Direct line to our team — no apps, no bots',
 ]
 
 export default function CommercialPage() {
