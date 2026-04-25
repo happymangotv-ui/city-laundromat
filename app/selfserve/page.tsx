@@ -79,7 +79,7 @@ export default function SelfServePage() {
             <div className="pricing-row">
               <div className="pcard">
                 <h3>Washers</h3>
-                <div className="pcard-price">$2.50</div>
+                <div className="pcard-price">$2.69</div>
                 <div className="pcard-unit">/load</div>
                 <p>Standard load. High-capacity machines available for bigger loads.</p>
               </div>
