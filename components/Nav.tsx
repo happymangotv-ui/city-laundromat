@@ -51,6 +51,9 @@ export default function Nav() {
         <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
           ✕
         </button>
+        <Link href="/" className="mobile-menu-logo" onClick={() => setMenuOpen(false)}>
+          The City <em>Laundry</em>
+        </Link>
         {links.map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>
             {l.label}
