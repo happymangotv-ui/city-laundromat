@@ -84,7 +84,7 @@ export default function PickupPage() {
             </p>
           </div>
         </FadeUp>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '24px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="cards-grid cards-grid-3" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {areas.map((a, i) => (
             <FadeUp key={i}>
               {a.href ? (
