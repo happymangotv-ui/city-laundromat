@@ -44,7 +44,7 @@ export default function HomePage() {
             Professional Laundry Care,<br />
             <em>Done Right</em>
           </h1>
-          <p className="hero-desc" style={{ fontSize: '24px' }}>
+          <p className="hero-desc" style={{ fontSize: 'clamp(16px, 3.5vw, 24px)' }}>
             Drop off or schedule a pickup. We wash, dry, and fold your clothes so you don&apos;t have to.
           </p>
           <div className="hero-actions">
