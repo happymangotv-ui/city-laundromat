@@ -41,7 +41,7 @@ export default function SelfServePage() {
         <FadeUp className="hero-img-col">
           <div className="hero-img-frame">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={IMGS.machines} alt="Self-serve laundromat machines" />
+            <img src="https://i.ibb.co/Dg1WCXWT/young-couple-loading-clothes-into-washing-machine-2026-01-09-10-00-32-utc.jpg" alt="Self-serve laundromat machines" />
           </div>
         </FadeUp>
       </section>

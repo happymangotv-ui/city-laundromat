@@ -36,22 +36,6 @@ export default function AboutPage() {
           </div>
         </FadeUp>
 
-        <FadeUp className="hero-img-col">
-          <div className="about-grid">
-            <div className="g-main">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={IMGS.about1} alt="Our laundromat" />
-            </div>
-            <div className="g-side">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={IMGS.about2} alt="Machines" />
-            </div>
-            <div className="g-side">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={IMGS.about3} alt="Folded laundry" />
-            </div>
-          </div>
-        </FadeUp>
       </section>
 
       <div className="divider" />

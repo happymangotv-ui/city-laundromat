@@ -3,9 +3,9 @@ import FadeUp from '@/components/FadeUp'
 import Check from '@/components/Check'
 
 const areas = [
-  { img: IMGS.ues,     title: 'Upper East Side', desc: 'Full pickup and delivery coverage across the Upper East Side.' },
-  { img: IMGS.uws,     title: 'Upper West Side', desc: 'Full pickup and delivery coverage across the Upper West Side.' },
-  { img: IMGS.midtown, title: 'Midtown',         desc: 'Full pickup and delivery coverage throughout Midtown Manhattan.' },
+  { img: IMGS.ues,     title: 'Upper East Side', desc: 'Full pickup and delivery coverage across the Upper East Side.',    href: BOOKING },
+  { img: IMGS.uws,     title: 'Upper West Side', desc: 'Full pickup and delivery coverage across the Upper West Side.',    href: BOOKING },
+  { img: IMGS.midtown, title: 'Midtown',         desc: 'Full pickup and delivery coverage throughout Midtown Manhattan.',  href: BOOKING },
 ]
 
 const steps = [
@@ -45,7 +45,7 @@ export default function PickupPage() {
         <FadeUp className="hero-img-col">
           <div className="hero-img-frame">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={IMGS.pickup} alt="Laundry pickup service" />
+            <img src="https://i.ibb.co/Kc2mBxMX/basket-with-clothes-2026-01-09-08-14-53-utc.jpg" alt="Laundry pickup service" />
           </div>
         </FadeUp>
       </section>
@@ -86,13 +86,26 @@ export default function PickupPage() {
         </FadeUp>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '24px', maxWidth: '1200px', margin: '0 auto' }}>
           {areas.map((a, i) => (
-            <FadeUp key={i} className="lcard">
-              <div className="lcard-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={a.img} alt={a.title} />
-              </div>
-              <div className="lcard-title">{a.title}</div>
-              <div className="lcard-sub">{a.desc}</div>
+            <FadeUp key={i}>
+              {a.href ? (
+                <a href={a.href} target="_blank" rel="noopener noreferrer" className="lcard" style={{ display: 'block' }}>
+                  <div className="lcard-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={a.img} alt={a.title} />
+                  </div>
+                  <div className="lcard-title">{a.title}</div>
+                  <div className="lcard-sub">{a.desc}</div>
+                </a>
+              ) : (
+                <div className="lcard">
+                  <div className="lcard-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={a.img} alt={a.title} />
+                  </div>
+                  <div className="lcard-title">{a.title}</div>
+                  <div className="lcard-sub">{a.desc}</div>
+                </div>
+              )}
             </FadeUp>
           ))}
         </div>
