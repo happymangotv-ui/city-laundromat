@@ -1,4 +1,5 @@
 import { PHONE, ADDR } from '@/lib/constants'
+import content from '@/lib/content.json'
 import MapsPicker from '@/components/MapsPicker'
 
 const locationIcon = (
@@ -39,7 +40,7 @@ export default function InfoStrip() {
       <div className="info-block">
         <div className="info-icon"><svg viewBox="0 0 24 24">{clockIcon}</svg></div>
         <div className="info-label">Hours</div>
-        <div className="info-val">Mon–Sun: 7am – 8pm</div>
+        <div className="info-val">{content.hours.display}</div>
       </div>
     </div>
   )

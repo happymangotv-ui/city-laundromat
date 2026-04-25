@@ -1,4 +1,5 @@
 import { BOOKING, PHONE, IMGS } from '@/lib/constants'
+import content from '@/lib/content.json'
 import FadeUp from '@/components/FadeUp'
 import Check from '@/components/Check'
 
@@ -127,13 +128,13 @@ export default function PickupPage() {
             <div className="pricing-row">
               <div className="pcard">
                 <h3>Wash &amp; Fold</h3>
-                <div className="pcard-price">$1.25</div>
+                <div className="pcard-price">${content.pricing.washFold}</div>
                 <div className="pcard-unit">/lb</div>
                 <p>Washed, dried, and neatly folded. Free pickup &amp; delivery included.</p>
               </div>
               <div className="pcard">
                 <h3>Rush Service</h3>
-                <div className="pcard-price">$1.45</div>
+                <div className="pcard-price">${content.pricing.rush}</div>
                 <div className="pcard-unit">/lb</div>
                 <p>Need it faster? Rush service available — call to schedule.</p>
               </div>

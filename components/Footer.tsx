@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { PHONE, ADDR, EMAIL } from '@/lib/constants'
+import content from '@/lib/content.json'
 import MapsPicker from '@/components/MapsPicker'
 
 export default function Footer() {
@@ -29,7 +30,7 @@ export default function Footer() {
             <li><MapsPicker style={{ color: 'var(--ash)', fontSize: '14px', fontWeight: 500 }}>{ADDR}</MapsPicker></li>
             <li><a href={`tel:${PHONE.replace(/\D/g, '')}`}>{PHONE}</a></li>
             <li><a href={`mailto:${EMAIL}?subject=The%20City%20Laundry%20Inquiry`}>{EMAIL}</a></li>
-            <li><span>Mon–Sun: 7am – 8pm</span></li>
+            <li><span>{content.hours.display}</span></li>
           </ul>
         </div>
       </div>

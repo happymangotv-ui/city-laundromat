@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BOOKING, PHONE, IMGS } from '@/lib/constants'
+import content from '@/lib/content.json'
 import FadeUp from '@/components/FadeUp'
 import InfoStrip from '@/components/InfoStrip'
 
@@ -54,7 +55,7 @@ export default function HomePage() {
             <a href={`tel:${PHONE}`} className="btn-secondary">Call Us</a>
           </div>
           <p className="hero-meta">
-            Starting at <strong>$1.25/lb</strong> — Wash &amp; Fold
+            Starting at <strong>${content.pricing.washFold}/lb</strong> — Wash &amp; Fold
           </p>
         </FadeUp>
 

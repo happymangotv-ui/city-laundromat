@@ -1,0 +1,19 @@
+{
+  "pricing": {
+    "washFold": "1.25",
+    "rush": "1.45",
+    "washer": "2.69",
+    "dryer5min": "0.25"
+  },
+  "hours": {
+    "display": "Mon–Sun: 7am – 8pm",
+    "open": "7am",
+    "close": "8pm"
+  },
+  "contact": {
+    "phone": "(917) 825-9176",
+    "email": "Classicbrook13@gmail.com",
+    "addr": "391 Brook Ave, Bronx NY 10454"
+  },
+  "booking": "https://app.trycents.com/new-order/YjUw/home"
+}

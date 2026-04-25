@@ -1,4 +1,5 @@
 import { BOOKING, PHONE, IMGS } from '@/lib/constants'
+import content from '@/lib/content.json'
 import MapsPicker from '@/components/MapsPicker'
 import FadeUp from '@/components/FadeUp'
 import Check from '@/components/Check'
@@ -79,13 +80,13 @@ export default function SelfServePage() {
             <div className="pricing-row">
               <div className="pcard">
                 <h3>Washers</h3>
-                <div className="pcard-price">$2.69</div>
+                <div className="pcard-price">${content.pricing.washer}</div>
                 <div className="pcard-unit">/load</div>
                 <p>Standard load. High-capacity machines available for bigger loads.</p>
               </div>
               <div className="pcard">
                 <h3>Dryers</h3>
-                <div className="pcard-price">$0.25</div>
+                <div className="pcard-price">${content.pricing.dryer5min}</div>
                 <div className="pcard-unit">/5 min</div>
                 <p>High-efficiency dryers. Most loads take 30–40 minutes.</p>
               </div>
@@ -102,7 +103,7 @@ export default function SelfServePage() {
         </div>
         <div className="photo-section-text">
           <div className="section-label">Open 7 days</div>
-          <h2 className="section-title">Come in anytime, 7am – 8pm</h2>
+          <h2 className="section-title">Come in anytime, {content.hours.open} – {content.hours.close}</h2>
           <p>
             No appointment needed. Walk in, load up, and be done in under an hour.
             391 Brook Ave, Bronx NY 10454.
