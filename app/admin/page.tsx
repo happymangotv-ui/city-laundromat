@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 
 // ── Config ────────────────────────────────────────────────────────────────────
-const ADMIN_PASSWORD = 'citylaundry2025'
+const ADMIN_PASSWORD = 'IkroopsMatcha101!'
 const GH_OWNER      = 'happymangotv-ui'
 const GH_REPO       = 'city-laundromat'
 const GH_PATH       = 'lib/content.json'
